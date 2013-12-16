@@ -1,10 +1,8 @@
 #!/bin/bash
 
-cd ~/.vim
-
 #create symlinks
-ln -s vimrc ~/.vimrc
+ln -s ~/.vim/vimrc ~/.vimrc
 
 #Grab the submodules
-git submodule init
-git submodule update
+cd ~/.vim
+git submodule update --init
