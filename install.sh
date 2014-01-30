@@ -2,7 +2,7 @@
 
 #create symlinks
 ln -s ~/.vim/vimrc ~/.vimrc || fail=true
-if [ $fail }; then
+if [ $fail ] ; then
 	echo "Found previous $HOME/.vim configuration file - exiting installation. Backup your .vim file (to another location) and try to reinstall"
 	exit 1
 fi
