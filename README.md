@@ -10,6 +10,6 @@ Installation instructions
 		chmod u+x install.sh
 		./install.sh
 3. Dependencies:
-	- You must have exuberant-ctags installed in order for TagList to function. See [ctags](http://ctags.sourceforge.net/ctags.html). To install in Ubuntu run:
+  - You must have exuberant-ctags installed in order for TagList to function. See [ctags](http://ctags.sourceforge.net/ctags.html). To install in Ubuntu run:
 
 		sudo apt-get install exuberant-ctags
