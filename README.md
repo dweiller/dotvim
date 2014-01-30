@@ -12,4 +12,4 @@ Installation instructions
 3. Dependencies:
   - You must have exuberant-ctags installed in order for TagList to function. See [ctags](http://ctags.sourceforge.net/ctags.html). To install in Ubuntu run:
 
-		sudo apt-get install exuberant-ctags
+			sudo apt-get install exuberant-ctags
