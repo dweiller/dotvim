@@ -19,10 +19,20 @@ set autoread
 set list
 set autoindent
 
+"set up colour scheme
+if $COLORTERM == 'gnome-terminal'
+  set t_Co=256
+endif
+
 "molokai colour scheme
-:colorscheme molokai
-let g:rehash256 = 1
+"set background=dark
+"let g:rehash256 = 1
+":colorscheme molokai
+
+"solarized colour scheme
 set background=dark
+let g:solarized_termcolors=256
+:colorscheme solarized
 
 "map 'kj' to <Esc> for exiting insert mode
 :inoremap kj <Esc>
