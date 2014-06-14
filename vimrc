@@ -17,7 +17,7 @@ set ruler
 set wildmenu
 set autoread
 set list
-set autoindent
+set smarttab autoindent
 
 "set up colour scheme
 if $COLORTERM == 'gnome-terminal'
