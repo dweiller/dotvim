@@ -1,23 +1,45 @@
 execute pathogen#infect()
-syntax on
 
 if has('autocmd')
-  filetype plugin indent on
+  filetype plugin indent on   "load ftplugins and indent files
 endif
 
-"searching options
-set incsearch
-set ignorecase
-set smartcase
+syntax on   "turn on syntax highlighting
 
-set showmatch
-set backspace=indent,eol,start
-set showcmd
+"searching options
+set incsearch   "show next match while typing
+set hlsearch    "highlight matches
+set ignorecase  "ignore case
+set smartcase   "be clever about cases
+
+"general stuff
+set showmatch                   "highlight matching braces
+set backspace=indent,eol,start  "backspace over everything
+set showmode                    "show current mode
+set showcmd                     "show incomplete commands
 set ruler
-set wildmenu
+set wildmenu                    "tab completion of ex commands
 set autoread
+set smarttab
+set autoindent
+set hidden                      "hide buffers instead of closing them
+set colorcolumn=+1              "mark ideal max text width
+set formatoptions-=o            "don't continue comments when hitting o/O
+
+"show tabs, trailing spaces etc.
 set list
-set smarttab autoindent
+"nicer 'set list' formatting
+if &listchars ==# 'eol:$'
+  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+  if !has('win32') && (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8')
+    let &listchars = "tab:\u21e5 ,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u00b7"
+  endif
+endif
+
+"folding settings
+set foldmethod=indent   "fold based on indent
+set foldnestmax=3       "deepest fold is 3 levels
+set nofoldenable        "dont fold by default
 
 "set up colour scheme
 if $COLORTERM == 'gnome-terminal'
@@ -37,10 +59,32 @@ let g:solarized_termcolors=256
 "map 'kj' to <Esc> for exiting insert mode
 :inoremap kj <Esc>
 
-"nicer 'set list' formatting
-if &listchars ==# 'eol:$'
-  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-  if !has('win32') && (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8')
-    let &listchars = "tab:\u21e5 ,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u00b7"
-  endif
-endif
+"statusline setup
+"set statusline=%#identifier#
+set statusline+=%f           "40 character filename
+set statusline+=%*
+
+set statusline+=\ %#warningmsg#
+"warning if fileformat isn't unix
+set statusline+=%{&ff!='unix'?'['.&ff.']':''}
+"warning if file encoding isn't utf-8
+set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
+set statusline+=%*
+
+set statusline+=%h              "help file flag
+set statusline+=%y              "filetype
+
+"set statusline+=%#identifier#
+set statusline+=%r              "readonly flag
+set statusline+=%m              "modified flag
+set statusline+=%*
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+set statusline+=%=              "left/right separator
+set statusline+=%c,             "cursor column
+set statusline+=%l/%L           "cursor line/total lines
+set statusline+=\ %P            "percent through file
+set laststatus=1
