@@ -26,6 +26,8 @@ set hidden                      "hide buffers instead of closing them
 set colorcolumn=+1              "mark ideal max text width
 set formatoptions-=o            "don't continue comments when hitting o/O
 
+let g:tex_flavor = "latex"
+
 "show tabs, trailing spaces etc.
 set list
 "nicer 'set list' formatting
@@ -40,6 +42,10 @@ endif
 set foldmethod=indent   "fold based on indent
 set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
+
+set expandtab
+set shiftwidth=4
+set softtabstop=4
 
 "set up colour scheme
 if $COLORTERM == 'gnome-terminal'
