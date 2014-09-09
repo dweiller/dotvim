@@ -65,6 +65,10 @@ let g:solarized_termcolors=256
 "map 'kj' to <Esc> for exiting insert mode
 :inoremap kj <Esc>
 
+"map <F2> to toggle between relative and absolute lin numbering
+let g:NumberToggleTrigger="<F2>"
+
+
 "statusline setup
 "set statusline=%#identifier#
 set statusline+=%f           "40 character filename
