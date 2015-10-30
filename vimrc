@@ -68,6 +68,9 @@ let g:solarized_termcolors=256
 "map <F2> to toggle between relative and absolute lin numbering
 let g:NumberToggleTrigger="<F2>"
 
+"map <F3> to write and run make
+:nnoremap <F3> :w<CR>\|:!make<CR>
+
 
 "statusline setup
 "set statusline=%#identifier#
@@ -98,3 +101,12 @@ set statusline+=%c,             "cursor column
 set statusline+=%l/%L           "cursor line/total lines
 set statusline+=\ %P            "percent through file
 set laststatus=1
+
+"taglist stuff
+noremap <silent> <F9> :TlistToggle<CR>
+let tlist_tex_settings = 'latex;l:labels;s:sections;t:subsections;u:subsubsections'
+let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_Auto_Highlight_Tag = 1
+let Tlist_Close_On_Select = 1
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_Auto_Update = 1

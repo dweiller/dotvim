@@ -8,5 +8,7 @@ if [ $fail ] ; then
 fi
 
 #Grab the submodules
+cd ~
+ln -s .vim/vimrc .vimrc
 cd ~/.vim
 git submodule update --init
