@@ -6,10 +6,10 @@ shift
 for i in "$@"
 do
     case $i in
-        --install=*)
-            url="${i#*=}"
+        git://*|http://*)
+            url=${i##*=}
             bundle=${url##*/}
-            bundle=${bundle%.vim}
+            bundle=${bundle%.git}
             shift
             ;;
         *)
