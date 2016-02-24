@@ -4,4 +4,5 @@ if exists("did_load_filetypes")
 endif
 augroup filetypedetect
   au! BufRead,BufNewFile *.cls setfiletype tex
+  au! BufRead,BufNewFile *.md setfiletype markdown
 augroup END
