@@ -68,8 +68,8 @@ colorscheme solarized
 
 "map <F2><F2> to toggle between relative and absolute lin numbering
 "and <F2> to toggle line numbering on and off
-let g:NumberToggleTrigger="<F2><F2>"
-nnoremap <F2> :set invnumber<CR>:set invrelativenumber<CR>
+nnoremap <silent> <F2><F2> :set invrelativenumber<CR>
+nnoremap <silent> <F2> :set invnumber<CR>:set invrelativenumber<CR>
 
 "map <F3> to write and run make
 :nnoremap <F3> :w<CR>\|:!make<CR>
