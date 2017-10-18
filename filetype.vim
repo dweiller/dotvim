@@ -1,8 +1,8 @@
 " my filetype file
 if exists("did_load_filetypes")
-  finish
+    finish
 endif
 augroup filetypedetect
-  au! BufRead,BufNewFile *.cls setfiletype tex
-  au! BufRead,BufNewFile *.md setfiletype markdown
+    autocmd!
+    autocmd BufRead,BufNewFile *.cls setfiletype tex
 augroup END
