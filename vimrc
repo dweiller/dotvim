@@ -11,6 +11,7 @@ set incsearch   "show next match while typing
 set hlsearch    "highlight matches
 set ignorecase  "ignore case
 set smartcase   "be clever about cases
+nohlsearch      "turn off highlight incase we're resourcing
 
 "general stuff
 set showmatch                   "highlight matching braces
@@ -74,10 +75,13 @@ nnoremap <silent> <F2> :set invnumber<CR>:set invrelativenumber<CR>
 "map <F3> to write and run make
 nnoremap <F3> :w<CR>\|:!make<CR>
 
+"easy editing and sourcing of vimrc
+nnoremap <leader>ev :edit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 "statusline setup
 "set statusline=%#identifier#
-set statusline+=%f           "40 character filename
+set statusline=%f           "40 character filename
 set statusline+=%*
 
 set statusline+=\ %#warningmsg#
