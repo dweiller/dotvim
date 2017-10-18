@@ -64,7 +64,7 @@ let g:solarized_termcolors=256
 colorscheme solarized
 
 "map 'kj' to <Esc> for exiting insert mode
-:inoremap kj <Esc>
+inoremap kj <Esc>
 
 "map <F2><F2> to toggle between relative and absolute lin numbering
 "and <F2> to toggle line numbering on and off
@@ -72,7 +72,7 @@ nnoremap <silent> <F2><F2> :set invrelativenumber<CR>
 nnoremap <silent> <F2> :set invnumber<CR>:set invrelativenumber<CR>
 
 "map <F3> to write and run make
-:nnoremap <F3> :w<CR>\|:!make<CR>
+nnoremap <F3> :w<CR>\|:!make<CR>
 
 
 "statusline setup
@@ -104,15 +104,6 @@ set statusline+=%c,             "cursor column
 set statusline+=%l/%L           "cursor line/total lines
 set statusline+=\ %P            "percent through file
 set laststatus=1
-
-""taglist stuff
-"noremap <silent> <F9> :TlistToggle<CR>
-"let tlist_tex_settings = 'latex;l:labels;s:sections;t:subsections;u:subsubsections'
-"let Tlist_GainFocus_On_ToggleOpen = 1
-"let Tlist_Auto_Highlight_Tag = 1
-"let Tlist_Close_On_Select = 1
-"let Tlist_Exit_OnlyWindow = 1
-"let Tlist_Auto_Update = 1
 
 "tagbar stuff
 nnoremap <silent> <F9> :TagbarToggle<CR>
