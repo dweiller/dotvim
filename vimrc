@@ -64,6 +64,8 @@ let g:solarized_termcolors=256
 "let g:solarized_termtrans=1
 colorscheme solarized
 
+let mapleader = " "
+
 "map 'kj' to <Esc> for exiting insert mode
 inoremap kj <Esc>
 
@@ -78,6 +80,9 @@ nnoremap <F3> :w<CR>\|:!make<CR>
 "easy editing and sourcing of vimrc
 nnoremap <leader>ev :edit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
+"uppercase current WORD and continue inserting
+inoremap <c-j> <esc>gUiWEa
 
 "statusline setup
 "set statusline=%#identifier#
