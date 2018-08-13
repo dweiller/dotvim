@@ -3,7 +3,7 @@ Installation instructions
 
 1.  Clone the repository:
 
-		git clone --recursive git://github.com/dweiller/dotvim.git ~/.vim
+		git clone --recurse-submodules git://github.com/dweiller/dotvim.git ~/.vim
 2.  Run the install script:
 
 		cd ~/.vim
