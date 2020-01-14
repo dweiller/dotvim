@@ -23,4 +23,4 @@ To install bundles as submodules we have a helper script dotvim.sh.
 
 To install a bundle as a git submodule run
 		dotvim.sh bundle --install=url
-where the url is for a git repository. NOTE: The dotvim.sh script is currently untested.
+where the url is for a git repository.

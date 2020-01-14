@@ -1,12 +1,11 @@
 #!/bin/bash
-#This script is currently untested
 mode=$1
 shift
 
 for i in "$@"
 do
     case $i in
-        git://*|http://*)
+        --install=*)
             url=${i##*=}
             bundle=${url##*/}
             bundle=${bundle%.git}
@@ -19,7 +18,7 @@ do
     esac
 done
 
-if [ $mode=="bundle" ]
+if [ "$mode" = "bundle" ]
     then
         if [ "$PWD" != "$HOME/.vim" ]
             then
