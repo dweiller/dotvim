@@ -120,3 +120,8 @@ set laststatus=1
 nnoremap <silent> <F9> :TagbarToggle<CR>
 let g:tagbar_left = 1
 let g:tagbar_autoclose = 1
+
+"ocaml editiing
+let g:opamshare = substitute(system('opam config var share'), '\n$', '', '''')
+execute "set rtp^=" . g:opamshare . "/ocp-indent/vim"
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
