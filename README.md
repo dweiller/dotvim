@@ -10,11 +10,15 @@ Installation instructions
 		chmod u+x install.sh
 		./install.sh
 3. Dependencies:
-  - You must have exuberant-ctags installed in order for TagBar to function. See [ctags](http://ctags.sourceforge.net/ctags.html). To install in Ubuntu run:
+  - You must have [exuberant-ctags](http://ctags.sourceforge.net/ctags.html) or [universal-ctags](http://github.com/universal-ctags/ctags) installed in order for TagBar to function. To install in Ubuntu run:
 
-			sudo apt-get install exuberant-ctags
+		sudo apt install exuberant-ctags
 
-  - You can also use universal-ctags, though currently you will have to build it yourself. See [universal-ctags](http://github.com/universal-ctags/ctags).
+or
+
+		sudo apt install universal-ctags
+
+  - I'd recommend universal-ctags --- it's a maintained fork of exuberant-ctags, but is only avaliable in the Ubuntu repos from disco (19.04) onwards. If you're on an older version I would suggest building universal-ctags from source rather than using exuberant-ctags (I recall discovering universal ctags after having problems with exuberant-ctags).
 
 Installation of bundles
 -----------------------
