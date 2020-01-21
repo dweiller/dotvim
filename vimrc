@@ -70,6 +70,9 @@ let mapleader = " "
 
 "map 'kj' to <Esc> for exiting insert mode
 inoremap kj <Esc>
+if has('nvim')
+  tnoremap kj <C-\><C-n>
+endif
 
 "map <F2><F2> to toggle between relative and absolute lin numbering
 "and <F2> to toggle line numbering on and off
