@@ -52,6 +52,8 @@ set softtabstop=4
 "set up colour scheme
 if $COLORTERM == 'gnome-terminal'
   set t_Co=256
+elseif $COLORTERM == 'truecolor' || $COLORTERM == '24bit'
+  set termguicolors
 endif
 
 "molokai colour scheme
@@ -63,7 +65,19 @@ endif
 set background=dark
 let g:solarized_termcolors=256
 "let g:solarized_termtrans=1
-colorscheme solarized
+"colorscheme solarized
+
+"nord colour scheme
+let g:nord_cursor_line_number_background = 1
+let g:nord_italic = 1
+let g:nord_underline = 1
+augroup nord-theme-overrides
+    autocmd!
+    autocmd ColorScheme nord highlight Comment guifg=#6d7a96
+    autocmd ColorScheme nord highlight NonText guifg=#6d7a96
+    autocmd ColorScheme nord highlight LineNr guifg=#6d7a96
+augroup END
+colorscheme nord
 
 let mapleader = " "
 
