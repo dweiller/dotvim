@@ -25,6 +25,7 @@ set smarttab
 set autoindent
 set hidden                      "hide buffers instead of closing them
 set colorcolumn=+1              "mark ideal max text width
+set cursorline
 set formatoptions-=o            "don't continue comments when hitting o/O
 set splitright                  "open splits to the right
 set splitbelow                  "open splits below
