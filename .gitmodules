@@ -1,32 +1,32 @@
 [submodule "bundle/vim-surround"]
-	path = bundle/vim-surround
+	path = pack/bundle/start/vim-surround
 	url = https://github.com/tpope/vim-surround
 [submodule "bundle/snipmate.vim"]
-	path = bundle/snipmate.vim
+	path = pack/bundle/start/snipmate.vim
 	url = https://github.com/msanders/snipmate.vim.git
 	ignore = dirty
 [submodule "bundle/syntastic"]
-	path = bundle/syntastic
+	path = pack/bundle/start/syntastic
 	url = https://github.com/scrooloose/syntastic.git
 [submodule "bundle/vim-numbertoggle"]
-	path = bundle/vim-numbertoggle
+	path = pack/bundle/start/vim-numbertoggle
 	url = https://github.com/jeffkreeftmeijer/vim-numbertoggle.git
 	ignore = dirty
 [submodule "bundle/ctrlp.vim"]
-	path = bundle/ctrlp.vim
+	path = pack/bundle/start/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
 [submodule "bundle/vim-easymotion"]
-	path = bundle/vim-easymotion
+	path = pack/bundle/start/vim-easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
 [submodule "bundle/molokai"]
-	path = bundle/molokai
+	path = pack/bundle/start/molokai
 	url = https://github.com/tomasr/molokai
 [submodule "bundle/vim-colors-solarized"]
-	path = bundle/vim-colors-solarized
+	path = pack/bundle/start/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "bundle/vim-multiple-cursors"]
-	path = bundle/vim-multiple-cursors
+	path = pack/bundle/start/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
 [submodule "bundle/tagbar"]
-	path = bundle/tagbar
+	path = pack/bundle/start/tagbar
 	url = https://github.com/majutsushi/tagbar.git

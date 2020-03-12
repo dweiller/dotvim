@@ -1,5 +1,3 @@
-execute pathogen#infect()
-
 if has('autocmd')
   filetype plugin indent on   "load ftplugins and indent files
 endif
