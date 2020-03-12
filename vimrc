@@ -127,5 +127,9 @@ let g:tagbar_autoclose = 1
 
 "ocaml editiing
 let g:opamshare = substitute(system('opam config var share'), '\n$', '', '''')
-execute "set rtp^=" . g:opamshare . "/ocp-indent/vim"
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
+if v:shell_error
+    unlet g:opamshare
+else
+    execute "set rtp^=" . g:opamshare . "/ocp-indent/vim"
+    execute "set rtp+=" . g:opamshare . "/merlin/vim"
+endif
