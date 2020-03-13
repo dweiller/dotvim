@@ -145,7 +145,7 @@ set statusline+=%=              "left/right separator
 set statusline+=%c,             "cursor column
 set statusline+=%l/%L           "cursor line/total lines
 set statusline+=\ %P            "percent through file
-set laststatus=1
+set laststatus=2
 " }}}
 " Tagbar {{{
 " --------------------------------------------------------------------
@@ -162,4 +162,3 @@ else
     execute "set rtp+=" . g:opamshare . "/merlin/vim"
 endif
 " }}}
-
