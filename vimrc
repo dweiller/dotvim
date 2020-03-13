@@ -64,7 +64,9 @@ endif
 " }}}
 " Folding settings {{{
 " ---------------------------------------------------------------------
-set foldmethod=indent           "fold based on indent
+if (&foldmethod == 'manual')    "prevent messing up foldmethod when resourcing
+    set foldmethod=indent       "fold based on indent
+endif
 set foldnestmax=3               "deepest fold is 3 levels
 set nofoldenable                "don't fold by default
 augroup filetype_vim
