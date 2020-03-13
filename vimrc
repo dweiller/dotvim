@@ -37,9 +37,7 @@ set wildmenu                    "tab completion of ex commands
 " }}}
 " Filetype settings {{{
 " --------------------------------------------------------------------
-if has('autocmd')
-    filetype plugin indent on   "load ftplugins and indent files
-endif
+filetype plugin indent on       "load ftplugins and indent files
 syntax enable                   "turn on syntax highlighting
 
 let g:tex_flavor = "latex"
@@ -59,18 +57,17 @@ endif
 set foldmethod=indent           "fold based on indent
 set foldnestmax=3               "deepest fold is 3 levels
 set nofoldenable                "don't fold by default
-if has('autocmd')
-    augroup filetype_vim
-        autocmd!
-        autocmd Filetype vim setlocal foldmethod=marker
-    augroup END
-endif
+augroup filetype_vim
+    autocmd!
+    autocmd Filetype vim setlocal foldmethod=marker
+augroup END
 " }}}
 " Colour schemes {{{
 " ---------------------------------------------------------------------
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
-elseif $COLORTERM == 'truecolor' || $COLORTERM == '24bit'
+elseif has('termguicolors') &&
+            \ ($COLORTERM == 'truecolor' || $COLORTERM == '24bit')
     set termguicolors
 endif
 
