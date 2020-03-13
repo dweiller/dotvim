@@ -1,71 +1,83 @@
-if has('autocmd')
-  filetype plugin indent on   "load ftplugins and indent files
-endif
+" General settings {{{
+" ---------------------------------------------------------------------
+"searching
+set hlsearch                    "highlight matches
+set ignorecase                  "ignore case
+set incsearch                   "show next match while typing
+set smartcase                   "be clever about cases
+nohlsearch                      "turn off highlight incase we're resourcing
 
-syntax on   "turn on syntax highlighting
-
-"searching options
-set incsearch   "show next match while typing
-set hlsearch    "highlight matches
-set ignorecase  "ignore case
-set smartcase   "be clever about cases
-nohlsearch      "turn off highlight incase we're resourcing
-
-"general stuff
-set showmatch                   "highlight matching braces
-set backspace=indent,eol,start  "backspace over everything
-set showmode                    "show current mode
-set showcmd                     "show incomplete commands
-set ruler
-set wildmenu                    "tab completion of ex commands
+"automagic options
 set autoread
-set smarttab
 set autoindent
-set hidden                      "hide buffers instead of closing them
+set backspace=indent,eol,start  "backspace over everything
+set formatoptions-=o            "don't continue comments when hitting o/O
+
+"display options
 set colorcolumn=+1              "mark ideal max text width
 set cursorline
-set formatoptions-=o            "don't continue comments when hitting o/O
-set splitright                  "open splits to the right
+set ruler
+set showcmd                     "show incomplete commands
+set showmatch                   "highlight matching braces
+set showmode                    "show current mode
+
+"window options
 set splitbelow                  "open splits below
+set splitright                  "open splits to the right
+
+"tab behaviour
+set expandtab
+set shiftwidth=4
+set smarttab
+set softtabstop=-1
+
+"other
+set hidden                      "hide buffers instead of closing them
+set wildmenu                    "tab completion of ex commands
+" }}}
+" Filetype settings {{{
+" --------------------------------------------------------------------
+if has('autocmd')
+    filetype plugin indent on   "load ftplugins and indent files
+endif
+syntax enable                   "turn on syntax highlighting
 
 let g:tex_flavor = "latex"
-
-"show tabs, trailing spaces etc.
+" }}}
+" List mode {{{
+" ---------------------------------------------------------------------
 set list
-"nicer 'set list' formatting
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 let &showbreak = "  > "
 if !has('win32') && (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8')
-  let &listchars = "tab:⇥ ,trail:␣,extends:⇉,precedes:⇇,nbsp:·"
-  let &showbreak = "  ↳ "
+    let &listchars = "tab:⇥ ,trail:␣,extends:⇉,precedes:⇇,nbsp:·"
+    let &showbreak = "  ↳ "
 endif
-
-"folding settings
-set foldmethod=indent   "fold based on indent
-set foldnestmax=3       "deepest fold is 3 levels
-set nofoldenable        "dont fold by default
-
-set expandtab
-set shiftwidth=4
-set softtabstop=4
-
-"set up colour scheme
+" }}}
+" Folding settings {{{
+" ---------------------------------------------------------------------
+set foldmethod=indent           "fold based on indent
+set foldnestmax=3               "deepest fold is 3 levels
+set nofoldenable                "don't fold by default
+if has('autocmd')
+    augroup filetype_vim
+        autocmd!
+        autocmd Filetype vim setlocal foldmethod=marker
+    augroup END
+endif
+" }}}
+" Colour schemes {{{
+" ---------------------------------------------------------------------
 if $COLORTERM == 'gnome-terminal'
-  set t_Co=256
+    set t_Co=256
 elseif $COLORTERM == 'truecolor' || $COLORTERM == '24bit'
-  set termguicolors
+    set termguicolors
 endif
 
-"molokai colour scheme
-"set background=dark
-"let g:rehash256 = 1
-"colorscheme molokai
+set background=dark
 
 "solarized colour scheme
-set background=dark
 let g:solarized_termcolors=256
-"let g:solarized_termtrans=1
-"colorscheme solarized
 
 "nord colour scheme
 let g:nord_cursor_line_number_background = 1
@@ -78,7 +90,9 @@ augroup nord-theme-overrides
     autocmd ColorScheme nord highlight LineNr guifg=#6d7a96
 augroup END
 colorscheme nord
-
+" }}}
+" Mappings {{{
+" --------------------------------------------------------------------
 let mapleader = " "
 
 "map 'kj' to <Esc> for exiting insert mode
@@ -102,9 +116,13 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 "uppercase current WORD and continue inserting
 inoremap <c-j> <esc>gUiWEa
 
-"statusline setup
+"tagbar
+nnoremap <silent> <F9> :TagbarToggle<CR>
+" }}}
+" Status line {{{
+" --------------------------------------------------------------------
 "set statusline=%#identifier#
-set statusline=%f           "40 character filename
+set statusline=%f               "40 character filename
 set statusline+=%*
 
 set statusline+=\ %#warningmsg#
@@ -131,13 +149,14 @@ set statusline+=%c,             "cursor column
 set statusline+=%l/%L           "cursor line/total lines
 set statusline+=\ %P            "percent through file
 set laststatus=1
-
-"tagbar stuff
-nnoremap <silent> <F9> :TagbarToggle<CR>
+" }}}
+" Tagbar {{{
+" --------------------------------------------------------------------
 let g:tagbar_left = 1
 let g:tagbar_autoclose = 1
-
-"ocaml editiing
+" }}}
+" OCaml {{{
+" --------------------------------------------------------------------
 let g:opamshare = substitute(system('opam config var share'), '\n$', '', '''')
 if v:shell_error
     unlet g:opamshare
@@ -145,3 +164,5 @@ else
     execute "set rtp^=" . g:opamshare . "/ocp-indent/vim"
     execute "set rtp+=" . g:opamshare . "/merlin/vim"
 endif
+" }}}
+
