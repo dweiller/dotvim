@@ -1,19 +1,19 @@
 " General settings {{{
 " ---------------------------------------------------------------------
-"searching
+"  searching
 set hlsearch                    "highlight matches
 set ignorecase                  "ignore case
 set incsearch                   "show next match while typing
 set smartcase                   "be clever about cases
 nohlsearch                      "turn off highlight incase we're resourcing
 
-"automagic options
+"  automagic options
 set autoread
 set autoindent
 set backspace=indent,eol,start  "backspace over everything
 set formatoptions-=o            "don't continue comments when hitting o/O
 
-"display options
+"  display options
 set colorcolumn=+1              "mark ideal max text width
 set cursorline
 set ruler
@@ -21,17 +21,17 @@ set showcmd                     "show incomplete commands
 set showmatch                   "highlight matching braces
 set showmode                    "show current mode
 
-"window options
+"  window options
 set splitbelow                  "open splits below
 set splitright                  "open splits to the right
 
-"tab behaviour
+"  tab behaviour
 set expandtab
 set shiftwidth=4
 set smarttab
 set softtabstop=-1
 
-"other
+"  other
 set hidden                      "hide buffers instead of closing them
 set wildmenu                    "tab completion of ex commands
 " }}}
@@ -73,10 +73,10 @@ endif
 
 set background=dark
 
-"solarized colour scheme
+"  solarized colour scheme
 let g:solarized_termcolors=256
 
-"nord colour scheme
+"  nord colour scheme
 let g:nord_cursor_line_number_background = 1
 let g:nord_italic = 1
 let g:nord_underline = 1
@@ -92,47 +92,47 @@ colorscheme nord
 " --------------------------------------------------------------------
 let mapleader = " "
 
-"map 'kj' to <Esc> for exiting insert mode
+"  map 'kj' to <Esc> for exiting insert mode
 inoremap kj <Esc>
 if has('nvim')
   tnoremap kj <C-\><C-n>
 endif
 
-"map <F2><F2> to toggle between relative and absolute lin numbering
-"and <F2> to toggle line numbering on and off
+"  map <F2><F2> to toggle between relative and absolute lin numbering
+"  and <F2> to toggle line numbering on and off
 nnoremap <silent> <F2><F2> :set invrelativenumber<CR>
 nnoremap <silent> <F2> :set invnumber<CR>:set invrelativenumber<CR>
 
-"map <F3> to write and run make
+"  map <F3> to write and run make
 nnoremap <F3> :w<CR>\|:!make<CR>
 
-"easy editing and sourcing of vimrc
+"  easy editing and sourcing of vimrc
 nnoremap <leader>ev :edit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-"uppercase current WORD and continue inserting
+"  uppercase current WORD and continue inserting
 inoremap <c-j> <esc>gUiWEa
 
-"tagbar
+"  tagbar
 nnoremap <silent> <F9> :TagbarToggle<CR>
 " }}}
 " Status line {{{
 " --------------------------------------------------------------------
-"set statusline=%#identifier#
+"  set statusline=%#identifier#
 set statusline=%f               "40 character filename
 set statusline+=%*
 
 set statusline+=\ %#warningmsg#
-"warning if fileformat isn't unix
+"  warning if fileformat isn't unix
 set statusline+=%{&ff!='unix'?'['.&ff.']':''}
-"warning if file encoding isn't utf-8
+"  warning if file encoding isn't utf-8
 set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
 set statusline+=%*
 
 set statusline+=%h              "help file flag
 set statusline+=%y              "filetype
 
-"set statusline+=%#identifier#
+"  set statusline+=%#identifier#
 set statusline+=%r              "readonly flag
 set statusline+=%m              "modified flag
 set statusline+=%*
