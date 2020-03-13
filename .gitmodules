@@ -21,9 +21,6 @@
 [submodule "bundle/molokai"]
 	path = pack/bundle/start/molokai
 	url = https://github.com/tomasr/molokai
-[submodule "bundle/vim-colors-solarized"]
-	path = pack/bundle/start/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "bundle/vim-multiple-cursors"]
 	path = pack/bundle/start/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
@@ -33,3 +30,6 @@
 [submodule "pack/bundle/start/nord-vim"]
 	path = pack/bundle/opt/nord-vim
 	url = https://github.com/arcticicestudio/nord-vim.git
+[submodule "pack/bundle/opt/vim-solarized8"]
+	path = pack/bundle/opt/vim-solarized8
+	url = https://github.com/lifepillar/vim-solarized8.git

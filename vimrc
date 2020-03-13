@@ -35,6 +35,16 @@ set softtabstop=-1
 set hidden                      "hide buffers instead of closing them
 set wildmenu                    "tab completion of ex commands
 " }}}
+" Modeline {{{
+" ---------------------------------------------------------------------
+"  We're trusting the modelineexpr feature to keep us safe...
+if exists('+modelineexpr')
+    set modeline
+    set nomodelineexpr
+else
+    set nomodeline
+end
+" }}}
 " Filetype settings {{{
 " --------------------------------------------------------------------
 filetype plugin indent on       "load ftplugins and indent files
@@ -70,11 +80,6 @@ elseif has('termguicolors') &&
             \ ($COLORTERM == 'truecolor' || $COLORTERM == '24bit')
     set termguicolors
 endif
-
-set background=dark
-
-"  solarized colour scheme
-let g:solarized_termcolors=256
 
 "  nord colour scheme
 let g:nord_cursor_line_number_background = 1
