@@ -85,11 +85,14 @@ endif
 let g:nord_cursor_line_number_background = 1
 let g:nord_italic = 1
 let g:nord_underline = 1
+let g:nord_uniform_diff_background = 1
+
 augroup nord-theme-overrides
     autocmd!
     autocmd ColorScheme nord highlight Comment guifg=#6d7a96
     autocmd ColorScheme nord highlight NonText guifg=#6d7a96
     autocmd ColorScheme nord highlight LineNr guifg=#6d7a96
+    autocmd ColorScheme nord highlight Folded guifg=#6d7a96
 augroup END
 colorscheme nord
 " }}}
