@@ -1,6 +1,6 @@
 " General settings {{{
 " ---------------------------------------------------------------------
-"  searching
+"  search options
 set hlsearch                    "highlight matches
 set ignorecase                  "ignore case
 set incsearch                   "show next match while typing
@@ -25,13 +25,13 @@ set showmode                    "show current mode
 set splitbelow                  "open splits below
 set splitright                  "open splits to the right
 
-"  tab behaviour
+"  tab options
 set expandtab
 set shiftwidth=4
 set smarttab
 set softtabstop=-1
 
-"  other
+"  other options
 set hidden                      "hide buffers instead of closing them
 set wildmenu                    "tab completion of ex commands
 " }}}
