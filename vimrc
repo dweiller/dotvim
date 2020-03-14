@@ -170,10 +170,9 @@ let g:tagbar_autoclose = 1
 " }}}
 " OCaml {{{
 " --------------------------------------------------------------------
-let g:opamshare = substitute(system('opam config var share'), '\n$', '', '''')
-if v:shell_error
-    unlet g:opamshare
-else
+if executable('opam')
+    " this will not work if opam config is changed while vim is running...
+    let g:opamshare = substitute(system('opam config var share'), '\n$', '', '''')
     execute "set rtp^=" . g:opamshare . "/ocp-indent/vim"
     execute "set rtp+=" . g:opamshare . "/merlin/vim"
 endif
