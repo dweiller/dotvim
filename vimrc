@@ -35,6 +35,11 @@ set softtabstop=-1
 set hidden                      "hide buffers instead of closing them
 set wildmenu                    "tab completion of ex commands
 " }}}
+" Commands {{{
+"----------------------------------------------------------------------
+command DiffOrig vert new | set bt=nofile | diffthis | 0r ++edit #
+            \ | diffthis | wincmd p | diffthis
+" }}}
 " Modeline {{{
 " ---------------------------------------------------------------------
 "  We're trusting the modelineexpr feature to keep us safe...
