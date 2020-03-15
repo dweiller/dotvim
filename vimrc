@@ -34,10 +34,13 @@ set softtabstop=-1
 "  other options
 set hidden                      "hide buffers instead of closing them
 set wildmenu                    "tab completion of ex commands
+set formatoptions+=j            "remove comment leader when joining lines
+set nojoinspaces                "don't insert two spaces after [.?!] on join
+set shiftround                  "on '<' and '>' round indent to shiftwidth
 " }}}
 " Commands {{{
 "----------------------------------------------------------------------
-command DiffOrig vert new | set bt=nofile | diffthis | 0r ++edit #
+command! DiffOrig vert new | set bt=nofile | diffthis | 0r ++edit #
             \ | diffthis | wincmd p | diffthis
 " }}}
 " Modeline {{{
@@ -57,15 +60,17 @@ syntax enable                   "turn on syntax highlighting
 
 let g:tex_flavor = "latex"
 " }}}
-" List mode {{{
+" List mode and showbreak {{{
 " ---------------------------------------------------------------------
 set list
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 let &showbreak = "  > "
 if !has('win32') && (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8')
     let &listchars = "tab:⇥ ,trail:␣,extends:⇉,precedes:⇇,nbsp:·"
-    let &showbreak = "  ↳ "
+    let &showbreak = "↳ "
 endif
+set breakindent
+set breakindentopt=shift:4
 " }}}
 " Folding settings {{{
 " ---------------------------------------------------------------------
@@ -78,6 +83,8 @@ augroup filetype_vim
     autocmd!
     autocmd Filetype vim setlocal foldmethod=marker
 augroup END
+set fillchars=fold:\ 
+set fillchars+=vert:┃
 " }}}
 " Colour schemes {{{
 " ---------------------------------------------------------------------
