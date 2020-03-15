@@ -5,11 +5,9 @@ Installation instructions
 
          git clone --recurse-submodules git://github.com/dweiller/dotvim.git ~/.vim
 
-  2. Run the install script:
+  2. Run make sure ~/.vim/vimrc is sourced by (n)vim. This can be done for vim by symlinking:
 
-         cd ~/.vim
-         chmod u+x install.sh
-         ./install.sh
+        ln -s ~/.vimrc ~/.vim/vimrc
 
 #### Dependencies:
 
@@ -22,12 +20,3 @@ Installation instructions
         sudo apt install universal-ctags
 
   - I'd recommend universal-ctags - it's a maintained fork of exuberant-ctags, but is only avaliable in the Ubuntu repos from disco (19.04) onwards. If you're on an older version I would suggest building universal-ctags from source rather than using exuberant-ctags (I recall discovering universal ctags after having problems with exuberant-ctags).
-
-Installation of bundles
------------------------
-
-To install bundles as submodules we have a helper script dotvim.sh.
-
-To install a bundle as a git submodule run
-		dotvim.sh bundle --install=url
-where the url is for a git repository.
