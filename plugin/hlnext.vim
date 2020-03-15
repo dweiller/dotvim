@@ -27,10 +27,7 @@ endif
 command HLNext :call <SID>HLNext()
 command HLNextOff :call <SID>HLNextOff()
 
-augroup HLNext
-    autocmd!
-    autocmd ColorScheme * highlight HLNext guibg=red guifg=black
-augroup END
+highlight default link HLNext IncSearch
 
 function! s:HLNext()
     call s:HLNextOff()
