@@ -100,7 +100,8 @@ augroup nord-theme-overrides
     autocmd ColorScheme nord highlight NonText guifg=#6d7a96
     autocmd ColorScheme nord highlight LineNr guifg=#6d7a96
     autocmd ColorScheme nord highlight Folded guifg=#6d7a96
-    autocmd ColorScheme nord highlight HLNext guibg=#B48EAD guifg=#2E3440
+    autocmd ColorScheme nord highlight EndOfBuffer guifg=#6d7a96
+    autocmd ColorScheme nord highlight IncSearch guibg=#B48EAD guifg=#2E3440
 augroup END
 colorscheme nord
 " }}}
