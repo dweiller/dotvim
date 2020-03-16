@@ -4,7 +4,7 @@
 " License:      This file is placed in the public domain.
 
 if exists('g:loaded_templ')
-    exit
+    finish
 endif
 let g:loaded_templ = 1
 
