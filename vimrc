@@ -128,7 +128,7 @@ nnoremap <silent> <F2><F2> :set invrelativenumber<CR>
 nnoremap <silent> <F2> :set invnumber<CR>:set invrelativenumber<CR>
 
 "  map <F3> to write and run make
-nnoremap <F3> :w<CR>\|:!make<CR>
+nnoremap <F3> :w<CR>\|:make<CR>
 
 "  easy editing and sourcing of vimrc
 nnoremap <leader>ev :edit $MYVIMRC<cr>
