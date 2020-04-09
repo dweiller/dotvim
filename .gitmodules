@@ -1,32 +1,32 @@
-[submodule "bundle/vim-surround"]
+[submodule "vim-surround"]
 	path = pack/bundle/start/vim-surround
 	url = https://github.com/tpope/vim-surround
-[submodule "bundle/snipmate.vim"]
+[submodule "snipmate.vim"]
 	path = pack/bundle/start/snipmate.vim
 	url = https://github.com/msanders/snipmate.vim.git
 	ignore = dirty
-[submodule "bundle/syntastic"]
+[submodule "syntastic"]
 	path = pack/bundle/start/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule "bundle/vim-numbertoggle"]
+[submodule "vim-numbertoggle"]
 	path = pack/bundle/start/vim-numbertoggle
 	url = https://github.com/jeffkreeftmeijer/vim-numbertoggle.git
 	ignore = dirty
-[submodule "bundle/ctrlp.vim"]
+[submodule "ctrlp.vim"]
 	path = pack/bundle/start/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule "bundle/vim-easymotion"]
+[submodule "vim-easymotion"]
 	path = pack/bundle/start/vim-easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
-[submodule "bundle/vim-multiple-cursors"]
+[submodule "vim-multiple-cursors"]
 	path = pack/bundle/start/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
-[submodule "bundle/tagbar"]
+[submodule "tagbar"]
 	path = pack/bundle/start/tagbar
 	url = https://github.com/majutsushi/tagbar.git
-[submodule "pack/bundle/start/nord-vim"]
+[submodule "nord-vim"]
 	path = pack/bundle/opt/nord-vim
 	url = https://github.com/arcticicestudio/nord-vim.git
-[submodule "pack/bundle/opt/vim-solarized8"]
+[submodule "vim-solarized8"]
 	path = pack/bundle/opt/vim-solarized8
 	url = https://github.com/lifepillar/vim-solarized8.git
