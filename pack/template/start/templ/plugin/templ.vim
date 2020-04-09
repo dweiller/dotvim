@@ -36,7 +36,14 @@ function! s:install()
     augroup END
 endfunction
 
+function! s:uninstall()
+    autocmd! Templ
+endfunction
+
 command -nargs=? TemplLoad :call <SID>load(<args>)
 command TemplInstall :call <SID>install()
+command TemplUninstall :call <SID>uninstall()
 
-call s:install()
+if !exists('g:Templ_disable_on_startup') || !g:Temple_disable_on_startup
+    call s:install()
+endif
