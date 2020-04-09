@@ -20,7 +20,7 @@ function! s:load(...)
     endif
 
     if !empty(extension)
-        let skeletons = globpath(&rtp, 'templates/*.' . extension, 0, 1)
+        let skeletons = Templ_templates(extension)
         if !empty(skeletons)
             execute "0read " . skeletons[0]
         endif
@@ -38,6 +38,14 @@ endfunction
 
 function! s:uninstall()
     autocmd! Templ
+endfunction
+
+function! Templ_templates(...)
+    if a:0
+        return globpath(&rtp, 'templates/*.' . a:1, 1, 1)
+    else
+        return globpath(&rtp, 'templates/*', 1, 1)
+    endif
 endfunction
 
 command -nargs=? TemplLoad :call <SID>load(<args>)
