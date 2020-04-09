@@ -40,7 +40,7 @@ set shiftround                  "on '<' and '>' round indent to shiftwidth
 " }}}
 " Commands {{{
 "----------------------------------------------------------------------
-command! DiffOrig vert new | set bt=nofile | diffthis | 0r ++edit #
+command! DiffOrig vert new | set bt=nofile | 0r ++edit #
             \ | diffthis | wincmd p | diffthis
 " }}}
 " Modeline {{{
