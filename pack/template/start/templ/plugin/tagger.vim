@@ -7,6 +7,7 @@
 if exists('g:loaded_tagger')
     finish
 endif
+let g:loaded_tagger = 1
 
 if !exists('g:Tagger_delim')
     let g:Tagger_delim = ':'
