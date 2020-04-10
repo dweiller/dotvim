@@ -23,8 +23,6 @@ endif
 if maparg('#', 'n') == ""
     nnoremap <silent> # #:call <SID>HLNext()<CR>
 endif
-command HLNext :call <SID>HLNext()
-command HLNextOff :call <SID>HLNextOff()
 
 highlight default link HLNext IncSearch
 
