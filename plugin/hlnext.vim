@@ -26,13 +26,17 @@ endif
 
 highlight default link HLNext IncSearch
 
+augroup plugin-HLNext
+    autocmd! CmdlineLeave [/?] :call timer_start(0, { arg -> s:HLNext() })
+augroup END
+
 function! s:HLNext()
     call s:HLNextOff()
     let target_pat = '\c\%#\('.@/.'\)'
     let w:HLNext_matchnum = matchadd('HLNext', target_pat, 101)
-    augroup HLNext
+    augroup plugin-HLNext
         autocmd! CursorMoved * :call s:HLNextOff()
-                                \ | autocmd! HLNext CursorMoved
+                                \ | autocmd! plugin-HLNext CursorMoved
     augroup END
 endfunction
 
