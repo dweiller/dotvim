@@ -31,7 +31,7 @@ function! s:install()
     augroup Templ
         autocmd!
         for ext in g:Templ_extensions
-            execute 'autocmd BufNewFile *.' . ext . ' TemplLoad "' . ext . '"'
+            execute 'autocmd BufNewFile *.' . ext . ' TemplLoad ' . ext . ''
         endfor
     augroup END
 endfunction
@@ -48,7 +48,7 @@ function! Templ_templates(...)
     endif
 endfunction
 
-command -nargs=? TemplLoad :call <SID>load(<args>)
+command -nargs=? TemplLoad :call <SID>load(<f-args>)
 command TemplInstall :call <SID>install()
 command TemplUninstall :call <SID>uninstall()
 
