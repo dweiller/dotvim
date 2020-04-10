@@ -72,7 +72,7 @@ endfunction
 
 function! s:replace_text(...)
     if a:0 != 2
-        echoerrm 'tagger: replace_text expects 2 arguments'
+        echoerr 'tagger: replace_text expects 2 arguments'
         return
     endif
     call s:replace_text_unsafe(a:1, a:2)
