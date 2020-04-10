@@ -32,7 +32,10 @@ function! s:HLNext()
     call s:HLNextOff()
     let target_pat = '\c\%#\('.@/.'\)'
     let w:HLNext_matchnum = matchadd('HLNext', target_pat, 101)
-    call s:HLNextSetTrigger()
+    augroup HLNext
+        autocmd! CursorMoved * :call s:HLNextOff()
+                                \ | autocmd! HLNext CursorMoved
+    augroup END
 endfunction
 
 function! s:HLNextOff()
@@ -40,18 +43,4 @@ function! s:HLNextOff()
         call matchdelete(w:HLNext_matchnum)
         unlet w:HLNext_matchnum
     endif
-endfunction
-
-function! s:HLNextSetTrigger()
-    augroup HLNextTrigger
-        autocmd!
-        autocmd CursorMoved * :call s:HLNextMovedTrigger()
-    augroup END
-endfunction
-
-function! s:HLNextMovedTrigger()
-    augroup HLNextTrigger
-        autocmd!
-    augroup END
-    call s:HLNextOff()
 endfunction
