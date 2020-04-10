@@ -5,12 +5,6 @@
 "
 " This is an adaptation of Damian Conway's HLNext plugin
 " (see github.com/thoughtstream/Damian-Conway-s-Vim-Setup/plugin/hlnext.vim)
-" Changes that have been made:
-"   - a call to HLNext(), moving the cursor calls HLNextOff()
-"   - * and # have been made
-"   - the functions have been defined with <SID> with commands HLNext and
-"     HLNextOff defined to replace them
-"   - HLNextOff() is called when unsetting hlsearch
 
 if exists('g:loaded_hlnext')
     finish
