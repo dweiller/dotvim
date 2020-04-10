@@ -12,6 +12,11 @@
 "     HLNextOff defined to replace them
 "   - HLNextOff() is called when unsetting hlsearch
 
+if exists('g:loaded_hlnext')
+    finish
+endif
+let g:loaded_hlnext = 1
+
 if maparg('n', 'n') == ""
     nnoremap <silent> n n:call <SID>HLNext()<CR>
 endif
