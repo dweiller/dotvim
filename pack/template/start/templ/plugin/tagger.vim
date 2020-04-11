@@ -98,7 +98,7 @@ function! s:replace_tag(...)
 endfunction
 
 function! s:replace_expr_unsafe(tag, expr)
-    call s:replace_text_unsafe(a:tag, execute(a:expr))
+    call s:replace_text_unsafe(a:tag, eval(a:expr))
 endfunction
 
 function! s:replace_text_unsafe(tag, text)
