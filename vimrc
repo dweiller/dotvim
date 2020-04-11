@@ -88,10 +88,8 @@ set fillchars+=vert:┃
 " }}}
 " Colour schemes {{{
 " ---------------------------------------------------------------------
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-elseif has('termguicolors') &&
-            \ ($COLORTERM == 'truecolor' || $COLORTERM == '24bit')
+if has('nvim') || (has('termguicolors') &&
+            \ ($COLORTERM == 'truecolor' || $COLORTERM == '24bit'))
     set termguicolors
 endif
 
