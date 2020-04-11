@@ -179,6 +179,12 @@ if executable('universal-ctags')
     let g:tagbar_ctags_bin = 'universal-ctags'
 endif
 " }}}
+" Templ & Tagger {{{
+" --------------------------------------------------------------------
+let g:Tagger_tag_exprs = {
+            \ 'DATE' : 'strftime("%d %b %Y")',
+            \ }
+" }}}
 " OCaml {{{
 " --------------------------------------------------------------------
 if executable('opam')
