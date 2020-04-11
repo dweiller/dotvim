@@ -99,14 +99,60 @@ let g:nord_italic = 1
 let g:nord_underline = 1
 let g:nord_uniform_diff_background = 1
 
+" Nord Colours {{{
+" ---------------------------------------------------------------------
+let g:nord_colour = [
+    \ "#2E3440",
+    \ "#3B4252",
+    \ "#434C5E",
+    \ "#4C566A",
+    \ "#D8DEE9",
+    \ "#E5E9F0",
+    \ "#ECEFF4",
+    \ "#8FBCBB",
+    \ "#88C0D0",
+    \ "#81A1C1",
+    \ "#5E81AC",
+    \ "#BF616A",
+    \ "#D08770",
+    \ "#EBCB8B",
+    \ "#A3BE8C",
+    \ "#B48EAD",
+\ ]
+
+let g:nord3_brightened = [
+    \ g:nord_colour[3],
+    \ "#4e586d",
+    \ "#505b70",
+    \ "#525d73",
+    \ "#556076",
+    \ "#576279",
+    \ "#59647c",
+    \ "#5b677f",
+    \ "#5d6982",
+    \ "#5f6c85",
+    \ "#616e88",
+    \ "#63718b",
+    \ "#66738e",
+    \ "#687591",
+    \ "#6a7894",
+    \ "#6d7a96",
+    \ "#6f7d98",
+    \ "#72809a",
+    \ "#75829c",
+    \ "#78859e",
+    \ "#7b88a1",
+\ ]
+" }}}
+
 augroup nord-theme-overrides
     autocmd!
-    autocmd ColorScheme nord highlight Comment guifg=#6d7a96
-    autocmd ColorScheme nord highlight NonText guifg=#6d7a96
-    autocmd ColorScheme nord highlight LineNr guifg=#6d7a96
-    autocmd ColorScheme nord highlight Folded guifg=#6d7a96
-    autocmd ColorScheme nord highlight EndOfBuffer guifg=#6d7a96
-    autocmd ColorScheme nord highlight IncSearch guibg=#B48EAD guifg=#2E3440
+    execute 'autocmd ColorScheme nord highlight Comment guifg=' . g:nord3_brightened[15]
+    execute 'autocmd ColorScheme nord highlight NonText guifg=' . g:nord3_brightened[15]
+    execute 'autocmd ColorScheme nord highlight LineNr guifg=' . g:nord3_brightened[15]
+    execute 'autocmd ColorScheme nord highlight Folded guifg=' . g:nord3_brightened[15]
+    execute 'autocmd ColorScheme nord highlight EndOfBuffer guifg=' . g:nord3_brightened[15]
+    execute 'autocmd ColorScheme nord highlight IncSearch guibg=' . g:nord_colour[15] . ' guifg=' . g:nord_colour[0]
 augroup END
 colorscheme nord
 " }}}
