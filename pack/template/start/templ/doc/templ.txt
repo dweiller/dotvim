@@ -52,6 +52,14 @@ g:Templ_disable_on_startup~
                         type:       boolean
                         default:    unset, equivalent to 0
 
+                                                    *g:Templ_Tagger*
+g:Templ_Tagger~
+                        If set to 0 then Templ will not automatically replace
+                        tags using |:TaggerAll|.
+
+                        type:       boolean
+                        default:    1
+
 ==============================================================================
 3. Templates                                        *templ-templates*
 

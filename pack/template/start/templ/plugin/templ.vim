@@ -12,6 +12,10 @@ if !exists('g:Templ_extensions')
     let g:Templ_extensions = [ 'vim', 'sh' ]
 endif
 
+if !exists('g:Templ_Tagger')
+    let g:Templ_Tagger = 1
+endif
+
 function! s:load(...)
     if a:0
         let extension = a:1
@@ -23,6 +27,9 @@ function! s:load(...)
         let skeletons = Templ_templates(extension)
         if !empty(skeletons)
             execute "0read " . skeletons[0]
+        endif
+        if exists(':TaggerAll') && g:Templ_Tagger
+            TaggerAll
         endif
     endif
 endfunction
