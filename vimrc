@@ -225,7 +225,7 @@ endif
 " }}}
 " Templ & Tagger {{{
 " --------------------------------------------------------------------
-let g:Tagger_tag_exprs = {
+let g:Tagger_exprs = {
             \ 'DATE' : 'strftime("%d %b %Y")',
             \ }
 " }}}
