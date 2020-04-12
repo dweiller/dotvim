@@ -13,12 +13,12 @@ if !exists('g:Tagger_delim')
     let g:Tagger_delim = ':'
 endif
 
-if !exists('g:Tagger_tag_pattern')
-    let g:Tagger_tag_pattern = '\u\+'
+if !exists('g:Tagger_pattern')
+    let g:Tagger_pattern = '\u\+'
 endif
 
-if !exists('g:Tagger_tag_exprs')
-    let g:Tagger_tag_exprs = {}
+if !exists('g:Tagger_exprs')
+    let g:Tagger_exprs = {}
 endif
 " }}}
 
@@ -48,14 +48,14 @@ endfunction
 function! s:get_tag()
     let line = getline(line('.'))
     let pattern = g:Tagger_delim . '\zs'
-                    \ . g:Tagger_tag_pattern . '\ze' . g:Tagger_delim
+                    \ . g:Tagger_pattern . '\ze' . g:Tagger_delim
     return matchstr(line, pattern, col('.') - 1)
 endfunction
 
 function! s:replace_all_tags(...)
     let windowview = winsaveview()
     call cursor(1,1)
-    let pattern = a:0 ? a:1 : g:Tagger_tag_pattern
+    let pattern = a:0 ? a:1 : g:Tagger_pattern
     if a:0 > 1
         while s:search(pattern) > 0
             call s:replace_text_unsafe(pattern, a:2)
@@ -63,8 +63,8 @@ function! s:replace_all_tags(...)
     else
         while s:search(pattern) > 0
             let tag = s:get_tag()
-            if has_key(g:Tagger_tag_exprs, tag)
-                call s:replace_expr_unsafe(tag, g:Tagger_tag_exprs[tag])
+            if has_key(g:Tagger_exprs, tag)
+                call s:replace_expr_unsafe(tag, g:Tagger_exprs[tag])
             else
                 call cursor(line('.'), col('.') + 1)
             endif
@@ -74,15 +74,15 @@ function! s:replace_all_tags(...)
 endfunction
 
 function! s:replace_tag(...)
-    let pattern = a:0 ? a:1 : g:Tagger_tag_pattern
+    let pattern = a:0 ? a:1 : g:Tagger_pattern
     if ! s:search(pattern, 'wc')
         return
     endif
     let tag = s:get_tag()
     if a:0 > 1
         call s:replace_text_unsafe(tag, a:2)
-    elseif has_key(g:Tagger_tag_exprs, tag)
-        call s:replace_expr_unsafe(tag, g:Tagger_tag_exprs[tag])
+    elseif has_key(g:Tagger_exprs, tag)
+        call s:replace_expr_unsafe(tag, g:Tagger_exprs[tag])
     else
         execute 'normal! vf' . g:Tagger_delim . "\<C-G>"
     endif
