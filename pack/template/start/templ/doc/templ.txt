@@ -1,23 +1,24 @@
 *templ.txt*     Load file templates
 
-                         ______                     __
-                        /_  __/__  ____ ___  ____  / /
-                         / / / _ \/ __ `__ \/ __ \/ /
-                        / / /  __/ / / / / / /_/ / /
-                       /_/  \___/_/ /_/ /_/ .___/_/
-                                         /_/
+                         ______                     __~
+                        /_  __/__  ____ ___  ____  / /~
+                         / / / _ \/ __ `__ \/ __ \/ / ~
+                        / / /  __/ / / / / / /_/ / /  ~
+                       /_/  \___/_/ /_/ /_/ .___/_/   ~
+                                         /_/          ~
                                                 - Simple templating for Vim
 
 ==============================================================================
 CONTENTS                                            *templ-contents*
 
-        |Introduction|
-        |Settings|
-        |Templates|
-        |Commands|
+        1. Introduction             |templ-intro|
+        2. Usage                    |templ-usage|
+        2. Configuration            |templ-config|
+        3. Templates                |templ-templates|
+        4. Commands                 |templ-commands|
 
 ==============================================================================
-Introduction                                        *templ* *templ-intro*
+1. Introduction                                     *templ* *templ-intro*
 
 Templ is a simple plugin for loading file templates. It operates based on file
 extensions and will automatically load a template when creating a new file for
@@ -29,7 +30,7 @@ While there are three whole commands, you don't need to read about them unless
 you want to use them to produce some other behaviour.
 
 ==============================================================================
-Settings                                            *templ-settings*
+2. Configuration                                    *templ-config*
 
                                                     *g:Templ_extensions*
 g:Templ_extensions~
@@ -49,10 +50,10 @@ g:Templ_disable_on_startup~
                         later time, but |TemplInstall| won't change this value.
 
                         type:       boolean
-                        default:    default: unset, equivalent to 0
+                        default:    unset, equivalent to 0
 
 ==============================================================================
-Templates                                           *templ-templates*
+3. Templates                                        *templ-templates*
 
 Templates for |Templ| are plain files that are recognised by their extension.
 They should be placed in a `templates/` subdirectory on the 'runtimepath' (see
@@ -72,7 +73,7 @@ Templ_templates([ext])                              *Templ_templates()*
                     given, returns the templates for that extension.
 
 ==============================================================================
-Commands                                            *templ-commands*
+4. Commands                                         *templ-commands*
 
                                                     *:TemplLoad*
 :TemplLoad [extension]  Load the first template for the given extension. If no
