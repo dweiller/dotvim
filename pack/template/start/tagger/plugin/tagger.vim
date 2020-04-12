@@ -104,6 +104,6 @@ endfunction
 function! s:replace_text_unsafe(tag, text)
     let pattern = escape(s:wrap_tag(a:tag), '/')
     let replace = escape(a:text, '/')
-    execute 's/' . pattern . '/' . replace . '/'
+    execute 's/\%#' . pattern . '/' . replace . '/'
 endfunction
 " }}}
