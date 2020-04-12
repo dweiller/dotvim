@@ -20,14 +20,6 @@ endif
 if !exists('g:Tagger_tag_exprs')
     let g:Tagger_tag_exprs = {}
 endif
-
-if !exists('g:Tagger_stopline')
-    let g:Tagger_stopline = 0
-endif
-
-if !exists('g:Tagger_timeout')
-    let g:Tagger_timeout = 0
-endif
 " }}}
 
 command! -nargs=* TaggerAll :call <SID>replace_tags(<f-args>)
@@ -41,8 +33,7 @@ endfunction
 
 function! s:search(tag, ...)
     let flags = a:0 ? a:1 : 'wc'
-    return search(s:wrap_tag(a:tag),
-                    \ flags, g:Tagger_stopline, g:Tagger_timeout)
+    return search(s:wrap_tag(a:tag), flags)
 endfunction
 
 function! s:replace_tags(...)
