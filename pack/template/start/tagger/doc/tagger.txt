@@ -1,0 +1,107 @@
+*tagger.txt*        Replace tags like `:TAG:`
+
+                       ______                           ~
+                      /_  __/___ _____ _____ ____  _____~
+                       / / / __ `/ __ `/ __ `/ _ \/ ___/~
+                      / / / /_/ / /_/ / /_/ /  __/ /    ~
+                     /_/  \__,_/\__, /\__, /\___/_/     ~
+                               /____//____/             ~
+                                            - Simple tag replacement for Vim
+
+==============================================================================
+CONTENTS                                            *tagger-contents*
+
+        1. Introduction             |tagger-intro|
+        2. Usage                    |tagger-usage|
+        3. Configuration            |tagger-config|
+        4. Expressions              |tagger-expressions|
+        5. Commands                 |tagger-commands|
+
+==============================================================================
+1. Introduction                                     *tagger* *tagger-intro*
+
+Tagger is a simple plugin for replacing tags comprised of a tag name
+surrounded by a delimiter, for example `:DATE:`.
+
+==============================================================================
+2. Usage                                            *tagger-usage*
+
+There are three ways in which a tag can be replaced in Tagger:
+
+    - jumping to the tag, selecting it and placing the user in |select-mode|
+    - replacing the tag with a user-supplied string
+    - replacing the tag with the evaluation of a user-defined expression.
+
+The user can replace either the next tag or all tags using |:Tagger| and
+|:TaggerAll| respectively. These commands accept an optional pattern to match
+tags against and (if a pattern is specified) optional replacement text to use.
+
+Tagger will choose from the three replacement methods based on the arguments
+supplied to |:Tagger| and |:TaggerAll|. If replacement text is supplied it
+will be used, otherwise |:TaggerAll| will only make replacements using
+expressions, while |:Tagger| will use an expression if possible and otherwise
+jump to the next tag and select it.
+
+For details see |tagger-commands|.
+
+==============================================================================
+3. Configuration                                    *tagger-config*
+
+                                                    *g:Tagger_delim*
+g:Tagger_delim~
+                        The delimiter that appears on each side of a tag.
+
+                        type:       string
+                        default:    ':'
+
+                                                    *g:Tagger_pattern*
+g:Tagger_pattern~
+                        The default pattern used to find tags.
+
+                        type:       string
+                        default:    '\u\+'
+
+                                                    *g:Tagger_exprs*
+g:Tagger_exprs~
+                        Maps tags to their corresponding expressions. The keys
+                        are matched exactly to a tag.
+
+                        For example, when set to `{ '\u': '"hi"'}`, the
+                        expression is used to replace `:\u:` with `hi` but not
+                        to replace `:A:`.
+
+                        See |tagger-expressions|.
+
+                        type:       dict
+                        default     { }
+
+==============================================================================
+4. Expressions                                      *tagger-expressions*
+
+A tag expression is evaluated if its corresponding tag is being replaced
+without replacement text being specified. Expressions are VimL expressions
+(passed to |eval()|) and are evaluated with the cursor on the tag's opening
+delimiter. Tag expressions are defined by setting |g:Tagger_exprs|; there are
+no default expressions set.
+
+                                                    *tagger-security*
+By allowing arbitrary VimL expressions, anything can be done to replace a tag
+(note: |system()| can be called). This does present a risk of |g:Tagger_exprs|
+being set maliciously. At the moment we are protect by obscurity, as no-one
+knows about Tagger.
+
+==============================================================================
+5. Commands                                         *tagger-commands*
+
+                                                    *:Tagger*
+:Tagger [pat [txt]]     Replace the next tag. The tag is found by searching
+                        for |g:Tagger_pattern|: if [pat] is given it is used
+                        for the search instead. If [txt] is given it is used
+                        to replace the tag; otherwise the tag is replaced
+                        using its expression (if defined), or by selecting the
+                        tag using |select-mode|.
+
+                                                    *:TaggerAll:*
+:TaggerAll [pat [txt]]  The same as above, except that all tags matching the
+                        pattern are replaced. If [txt] is not given then any
+                        tag without a defined expression will be skipped.
