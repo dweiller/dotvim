@@ -10,8 +10,10 @@ nohlsearch                      "turn off highlight incase we're resourcing
 "  automagic options
 set autoread
 set autoindent
+set copyindent                  "copy indent struct when indenting a new line
 set backspace=indent,eol,start  "backspace over everything
 set formatoptions-=o            "don't continue comments when hitting o/O
+
 
 "  display options
 set colorcolumn=+1              "mark ideal max text width
@@ -172,7 +174,7 @@ nnoremap <silent> <F2><F2> :set invrelativenumber<CR>
 nnoremap <silent> <F2> :set invnumber<CR>:set invrelativenumber<CR>
 
 "  map <F3> to write and run make
-nnoremap <F3> :w<CR>\|:make<CR>
+nnoremap <F3> :if &modified \|:w \|:endif \|:make<CR>
 
 "  easy editing and sourcing of vimrc
 nnoremap <leader>ev :edit $MYVIMRC<cr>
