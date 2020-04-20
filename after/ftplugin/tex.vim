@@ -4,7 +4,7 @@ function! s:SyncForward(pdffile, linenumber, sourcefile)
     exec 'silent ! python3 ' . shellescape(g:EvinceSyncTexScript) . ' ' .
         \ shellescape(a:pdffile) . ' ' .
         \ a:linenumber . ' ' .
-        \ shellescape(a:filename)
+        \ shellescape(bufname("%"))
 endfunction
 
 function! SyncTexForwardSearch()
