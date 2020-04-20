@@ -39,6 +39,12 @@ set wildmenu                    "tab completion of ex commands
 set formatoptions+=j            "remove comment leader when joining lines
 set nojoinspaces                "don't insert two spaces after [.?!] on join
 set shiftround                  "on '<' and '>' round indent to shiftwidth
+
+"use ripgrep if available
+if executable("rg")
+    set grepprg=rg\ --vimgrep
+    set grepformat=%f:%l:%c:%m
+endif
 " }}}
 " Commands {{{
 "----------------------------------------------------------------------
