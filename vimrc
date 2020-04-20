@@ -150,7 +150,7 @@ let g:nord3_brightened = [
 augroup nord-theme-overrides
     autocmd!
     execute 'autocmd ColorScheme nord highlight Comment guifg=' . g:nord3_brightened[15]
-    execute 'autocmd ColorScheme nord highlight NonText guifg=' . g:nord3_brightened[15]
+    execute 'autocmd ColorScheme nord highlight NonText guifg=' . g:nord3_brightened[5]
     execute 'autocmd ColorScheme nord highlight LineNr guifg=' . g:nord3_brightened[15]
     execute 'autocmd ColorScheme nord highlight Folded guifg=' . g:nord3_brightened[15]
     execute 'autocmd ColorScheme nord highlight EndOfBuffer guifg=' . g:nord3_brightened[15]
