@@ -161,6 +161,11 @@ augroup nord-theme-overrides
     execute 'autocmd ColorScheme nord highlight Folded guifg=' . g:nord3_brightened[15]
     execute 'autocmd ColorScheme nord highlight EndOfBuffer guifg=' . g:nord3_brightened[15]
     execute 'autocmd ColorScheme nord highlight IncSearch guibg=' . g:nord_colour[15] . ' guifg=' . g:nord_colour[0]
+    execute 'autocmd ColorScheme nord highlight StatusLine guibg=' . g:nord_colour[2] . ' guifg=' . g:nord_colour[4]
+    execute 'autocmd ColorScheme nord highlight StatusLineNC guibg=' . g:nord_colour[2] . ' guifg=' . g:nord3_brightened[15]
+    execute 'autocmd ColorScheme nord highlight User1 guibg=' . g:nord_colour[2] . ' guifg=' . g:nord_colour[7] . ' gui=bold'
+    execute 'autocmd ColorScheme nord highlight User2 guibg=' . g:nord_colour[2] . ' guifg=' . g:nord_colour[12] . ' gui=bold'
+    execute 'autocmd ColorScheme nord highlight User3 guibg=' . g:nord_colour[2] . ' guifg=' . g:nord_colour[7]
 augroup END
 colorscheme nord
 " }}}
@@ -194,33 +199,73 @@ nnoremap <silent> <F9> :TagbarToggle<CR>
 " }}}
 " Status line {{{
 " --------------------------------------------------------------------
-"  set statusline=%#identifier#
-set statusline=%f               "40 character filename
-set statusline+=%*
 
-set statusline+=\ %#warningmsg#
-"  warning if fileformat isn't unix
-set statusline+=%{&ff!='unix'?'['.&ff.']':''}
-"  warning if file encoding isn't utf-8
-set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
-set statusline+=%*
+highlight default link User1 StatusLine
+highlight default link User2 StatusLine
+highlight default link User3 StatusLine
 
-set statusline+=%h              "help file flag
-set statusline+=%y              "filetype
+function! StatusColour(active, num, item)
+    if a:active
+        return '%' . a:num . '*' . a:item . '%*'
+    else
+        return a:item
+    endif
+endfunction
 
-"  set statusline+=%#identifier#
-set statusline+=%r              "readonly flag
-set statusline+=%m              "modified flag
-set statusline+=%*
+function! StatusGitInfo()
+    let branch = trim(system('git describe --contains --all HEAD'))
+    return v:shell_error ? '' : branch
+endfunction
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+function! StatusLine(winnr)
+    let status = ''
+    let active = winnr() == a:winnr
+    let bufnr = winbufnr(a:winnr)
 
-set statusline+=%=              "left/right separator
-set statusline+=%c,             "cursor column
-set statusline+=%l/%L           "cursor line/total lines
-set statusline+=\ %P            "percent through file
+    " show column number aligned with numbercolumn
+    let numberwidth = getwinvar(a:winnr, '&numberwidth')
+    let status .= '%' . (numberwidth - 1) . 'v'
+
+    " file name surrounded by » «
+    let status .= StatusColour(active, 1, ' »')
+    let status .= ' %<'
+    let status .= '%f'
+    let status .= StatusColour(active, 1, ' «')
+
+    " show '-' if not modifiable, '!' if readonly and '+' if modified (with
+    " that precedence)
+    let status .= StatusColour(active, 2,
+      \ "%{&modifiable ? (&readonly ? ' !' : (&modified ? ' +' : '')) : ' -'}")
+
+    " in vim show if paste is set on active buffer's statusline
+    if !has('nvim') && active && &paste
+        let status .= ' %2*P%*'
+    endif
+
+    let status .= "%{(&fenc != 'utf-8' && &fenc != '') ? '[' . &fenc . ']' : '' }"
+
+    let status .= '%='
+    let status .= '%#WarningMsg#%{SyntasticStatuslineFlag()}%* '
+
+    let status .= '%='
+
+    let status .= StatusColour(active, 3, '%{StatusGitInfo()} ')
+    let status .= '%<%{getcwd()}'
+
+    return status
+endfunction
+
+function! RefreshStatus()
+    for nr in range(1, winnr('$'))
+        call setwinvar(nr, '&statusline', '%!StatusLine(' . nr . ')')
+    endfor
+endfunction
+
+augroup status
+    autocmd!
+    autocmd VimEnter,WinEnter,BufWinEnter * call RefreshStatus()
+augroup END
+
 set laststatus=2
 " }}}
 " Tagbar {{{
