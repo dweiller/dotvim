@@ -5,9 +5,11 @@ Installation instructions
 
          git clone --recurse-submodules git://github.com/dweiller/dotvim.git ~/.vim
 
-  2. Run make sure ~/.vim/vimrc is sourced by (n)vim. This can be done for vim by symlinking:
+  2. Run make sure ~/.vim/vimrc is sourced by (n)vim and repo is on the runtimepath. For vim this can be done by symlinking:
 
         ln -s ~/.vimrc ~/.vim/vimrc
+
+     For nvim either source edit you init.vim to include ~/.vim and ~/.vim/after in your runtimepath, ~/.vim/pack in your packpath, and finally source ~/.vim/vimrc from init.vim, or clone the repository to be one of the default runtimepath directories (e.g. $XDG_CONFIG_HOME/nvim, or $XDG_DATA_HOME/nvim/site) and symlink $XDG_CONFIG_HOME/nvim/init.vim to the vimrc file.
 
 #### Dependencies:
 
