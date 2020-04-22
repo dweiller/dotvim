@@ -40,7 +40,8 @@ g:Templ_extensions~
                         run for the change to take effect.
 
                         type:       list
-                        default:    [ "vim", "sh" ]
+                        default:    The list of all extensions of templates
+                                    found in the runtimepath at startup.
 
                                                     *g:Templ_disable_on_startup*
 g:Templ_disable_on_startup~

@@ -8,8 +8,17 @@ if exists('g:loaded_templ')
 endif
 let g:loaded_templ = 1
 
+function! Templ_templates(...)
+    if a:0
+        return globpath(&rtp, 'templates/*.' . a:1, 1, 1)
+    else
+        return globpath(&rtp, 'templates/*', 1, 1)
+    endif
+endfunction
+
 if !exists('g:Templ_extensions')
-    let g:Templ_extensions = [ 'vim', 'sh' ]
+    let g:Templ_extensions = uniq(sort(map(Templ_templates(),
+                                            \ 'fnamemodify(v:val, ":e")')))
 endif
 
 if !exists('g:Templ_Tagger')
@@ -45,14 +54,6 @@ endfunction
 
 function! s:uninstall()
     autocmd! Templ
-endfunction
-
-function! Templ_templates(...)
-    if a:0
-        return globpath(&rtp, 'templates/*.' . a:1, 1, 1)
-    else
-        return globpath(&rtp, 'templates/*', 1, 1)
-    endif
 endfunction
 
 command -nargs=? TemplLoad :call <SID>load(<f-args>)
