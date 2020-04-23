@@ -214,7 +214,7 @@ endfunction
 
 function! StatusGitInfo()
     let branch = trim(system('git describe --contains --all HEAD'))
-    return v:shell_error ? '' : branch
+    return v:shell_error ? '' : '(' . branch . ')'
 endfunction
 
 function! StatusLine(winnr)
@@ -245,12 +245,12 @@ function! StatusLine(winnr)
     let status .= "%{(&fenc != 'utf-8' && &fenc != '') ? '[' . &fenc . ']' : '' }"
 
     let status .= '%='
-    let status .= '%#WarningMsg#%{SyntasticStatuslineFlag()}%* '
+    let status .= '%#WarningMsg#%{SyntasticStatuslineFlag()}%*'
 
     let status .= '%='
 
     let status .= StatusColour(active, 3, '%{StatusGitInfo()} ')
-    let status .= '%<%{getcwd()}'
+    let status .= "%<%{fnamemodify(getcwd(), ':~')}"
 
     return status
 endfunction
