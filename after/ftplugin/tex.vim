@@ -17,3 +17,6 @@ function! SyncTexForwardSearch()
 endfunction
 
 map <buffer> <LocalLeader>e :call SyncTexForwardSearch()<CR>
+
+setlocal makeprg=pdflatex\ --synctex=13\ -file-line-error\ -interaction=nonstopmode\ %\ \|\ grep\ -P\ ':\\d{1,5}:\ '
+setlocal errorformat=%f:%l:\ %m
