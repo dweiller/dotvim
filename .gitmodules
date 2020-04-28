@@ -3,7 +3,7 @@
 	url = https://github.com/tpope/vim-surround
 [submodule "snipmate.vim"]
 	path = pack/bundle/start/snipmate.vim
-	url = https://github.com/msanders/snipmate.vim.git
+	url = https://github.com/garbas/vim-snipmate.git
 	ignore = dirty
 [submodule "syntastic"]
 	path = pack/bundle/start/syntastic
@@ -33,3 +33,9 @@
 [submodule "startuptime.vim"]
 	path = pack/bundle/opt/startuptime.vim
 	url = https://github.com/tweekmonster/startuptime.vim.git
+[submodule "vim-addon-mw-utils"]
+	path = pack/bundle/start/vim-addon-mw-utils
+	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule "tlib_vim"]
+	path = pack/bundle/start/tlib_vim
+	url = https://github.com/tomtom/tlib_vim.git
