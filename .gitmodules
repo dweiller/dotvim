@@ -1,6 +1,3 @@
-[submodule "vim-surround"]
-	path = pack/bundle/start/vim-surround
-	url = https://github.com/tpope/vim-surround
 [submodule "snipmate.vim"]
 	path = pack/bundle/start/snipmate.vim
 	url = https://github.com/garbas/vim-snipmate.git
@@ -39,3 +36,6 @@
 [submodule "tlib_vim"]
 	path = pack/bundle/start/tlib_vim
 	url = https://github.com/tomtom/tlib_vim.git
+[submodule "vim-sandwich"]
+	path = pack/bundle/start/vim-sandwich
+	url = https://github.com/machakann/vim-sandwich.git
