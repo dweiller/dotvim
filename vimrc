@@ -300,3 +300,6 @@ let g:snipMate.snippet_version = 1
 "  use vim-surround style keymap instead of the default
 runtime START macros/sandwich/keymap/surround.vim
 " }}}
+" Syntastic {{{
+let g:syntastic_tex_checkers = [ 'chktex', 'lacheck', 'proselint' ]
+" }}}
