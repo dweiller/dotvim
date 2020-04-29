@@ -1,81 +1,93 @@
 snippet lemma
-	\begin{lemma}\label{lem:${1:label}}
+	\\begin{lemma}\\label{lem:${1:LABEL}}
 		${2}
-	\end{lemma}
+	\\end{lemma}
 
 snippet defn
-	\begin{defn}\label{def:${1:label}}
+	\\begin{defn}\\label{def:${1:LABEL}}
 		${2}
-	\end{defn}
+	\\end{defn}
 
 snippet theorem
-	\begin{theorem}\label{thm:${1:label}}
+	\\begin{theorem}\\label{thm:${1:LABEL}}
 		${2}
-		\begin{proof}
+		\\begin{proof}
 			${3}
-		\end{proof}
-	\end{theorem}
+		\\end{proof}
+	\\end{theorem}
 
 snippet nptheorem
-	\begin{theorem}\label{thm:${1:label}}
+	\\begin{theorem}\\label{thm:${1:LABEL}}
 		${2}
-	\end{theorem}
+	\\end{theorem}
 
 snippet proposition
-	\begin{proposition}\label{prop:${1:label}}
+	\\begin{proposition}\\label{prop:${1:LABEL}}
 		${2}
-	\end{proposition}
+	\\end{proposition}
 
 snippet corollary
-	\begin{corollary}\label{cor:${1:label}}
+	\\begin{corollary}\\label{cor:${1:LABEL}}
 		${2}
-	\end{corollary}
+	\\end{corollary}
 
 snippet cor
-	\begin{cor}\label{cor:${1:label}}
+	\\begin{cor}\\label{cor:${1:LABEL}}
 		${2}
-	\end{cor}
+	\\end{cor}
 
 snippet prop
-	\begin{prop}\label{prop:${1:label}}
+	\\begin{prop}\\label{prop:${1:LABEL}}
 		${2}
-	\end{prop}
+	\\end{prop}
 
 snippet lem
-	\begin{lem}\label{lem:${1:label}}
+	\\begin{lem}\\label{lem:${1:LABEL}}
 		${2}
-	\end{lem}
+	\\end{lem}
 
 snippet thm
-	\begin{thm}\label{thm:${1:label}}
+	\\begin{thm}\\label{thm:${1:LABEL}}
 		${2}
-	\end{thm}
+	\\end{thm}
 
 snippet conj
-	\begin{conj}\label{conj:${1:label}}
+	\\begin{conj}\\label{conj:${1:LABEL}}
 		${2}
-	\end{conj}
+	\\end{conj}
 
 snippet rem
-	\begin{remark}\label{rem:${1:label}}
+	\\begin{remark}\\label{rem:${1:LABEL}}
 		${2}
-	\end{remark}
+	\\end{remark}
 
 snippet def
-	\begin{def}\label{def:${1:label}}
+	\\begin{def}\\label{def:${1:LABEL}}
 		${2}
-	\end{def}
+	\\end{def}
+
+snippet proof
+	\\begin{proof}
+		${1}
+	\\end{proof}
 
 # Section
+#  the substitute expression lowercases the SECTION NAME and replaces
+#  continuous and hyphens spaces with a single hyphen
 snippet sec
-	\section{${1:section name}}\label{sec:${2:$1}}
-	${3}
+	\\section{${1:SECTION NAME}}\\label{sec:${2:${1/.*/\=substitute(substitute(submatch(0), '\%( \|-\)\+', '-', 'g'), '.*', '\L\0', '')/}}}
+	${0}
 
 # Sub Section
-snippet subsec
-	\subsection{${1:subsection name}}\label{sec:${2:$1}}
-	${3}
+snippet sub
+	\\subsection{${1:SUBSECTION NAME}}\\label{sec:${2:${1/.*/\=substitute(substitute(submatch(0), '\%( \|-\)\+', '-', 'g'), '.*', '\L\0', '')/}}}
+	${0}
 # Sub Sub Section
-snippet subsub
-	\subsubsection{${1:subsubsection name}}\label{sec:${2:$1}}
-	${3}
+snippet ssub
+	\\subsubsection{${1:SUBSUBSECTION NAME}}\\label{sec:${2:${1/.*/\=substitute(substitute(submatch(0), '\%( \|-\)\+', '-', 'g'), '.*', '\L\0', '')/}}}
+	${0}
+
+snippet begin
+	\\begin{${1:ENV}}
+		${2}
+	\\end{${1}}

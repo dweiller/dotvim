@@ -291,3 +291,7 @@ if executable('opam')
     execute "set rtp+=" . g:opamshare . "/merlin/vim"
 endif
 " }}}
+" vim-snipmate {{{
+let g:snipMate = {}
+let g:snipMate.snippet_version = 1
+" }}}
