@@ -295,3 +295,8 @@ endif
 let g:snipMate = {}
 let g:snipMate.snippet_version = 1
 " }}}
+" vim-sandwich {{{
+" --------------------------------------------------------------------
+"  use vim-surround style keymap instead of the default
+runtime START macros/sandwich/keymap/surround.vim
+" }}}
