@@ -66,7 +66,6 @@ end
 filetype plugin indent on       "load ftplugins and indent files
 syntax enable                   "turn on syntax highlighting
 
-let g:tex_flavor = "latex"
 " }}}
 " List mode and showbreak {{{
 " ---------------------------------------------------------------------
