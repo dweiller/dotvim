@@ -212,8 +212,35 @@ function! StatusColour(active, num, item)
 endfunction
 
 function! StatusGitInfo()
-    let branch = trim(system('git describe --contains --all HEAD'))
-    return v:shell_error ? '' : '(' . branch . ')'
+    " adapted from __git_ps1
+    let repo_info = systemlist('git rev-parse --git-dir --is-inside-work-tree --short HEAD 2>/dev/null')
+    if ! len(repo_info)
+        return ''
+    endif
+
+    let gitdir = repo_info[0]
+    let inside_worktree = repo_info[1] ==# 'true' ? 1 : 0
+    let short_sha = get(repo_info, 2)
+
+    let head_file = gitdir . '/HEAD'
+
+    if ! filereadable(head_file)
+        return ''
+    endif
+
+    let branch = trim(system('git symbolic-ref HEAD 2>/dev/null'))
+    " if not a symbolic ref 'ref: ...'
+    if v:shell_error
+        let branch = trim(system('git describe --tags --exact-match HEAD 2>/dev/null'))
+        " if detached
+        if v:shell_error
+            let branch = '(' . short_sha . '...)'
+        endif
+    endif
+
+    " strip off the refs/heads/ prefix if it's there
+    let branch = matchstr(branch, 'refs/heads/\zs.*\|.*')
+    return '(' . branch . ')'
 endfunction
 
 function! StatusLine(winnr)
