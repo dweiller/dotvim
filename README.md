@@ -3,13 +3,19 @@ Installation instructions
 
   1. Clone the repository:
 
-         git clone --recurse-submodules git://github.com/dweiller/dotvim.git ~/.vim
+         git clone --recurse-submodules git://github.com/dweiller/dotvim.git REPO
 
-  2. Run make sure ~/.vim/vimrc is sourced by (n)vim and repo is on the runtimepath. For vim this can be done by symlinking:
+     where `REPO` should be `~/.vim` and `.config/nvim` for neovim. If the directory exists, ether remove it first or you'll have to integrate this repo manually into your setup.
 
-        ln -s ~/.vimrc ~/.vim/vimrc
+  2. Run make sure `vimrc` is sourced by (neo)vim (and `REPO` is on the runtimepath if you didn't clone it into the suggested place).
 
-     For nvim either source edit you init.vim to include ~/.vim and ~/.vim/after in your runtimepath, ~/.vim/pack in your packpath, and finally source ~/.vim/vimrc from init.vim, or clone the repository to be one of the default runtimepath directories (e.g. $XDG_CONFIG_HOME/nvim, or $XDG_DATA_HOME/nvim/site) and symlink $XDG_CONFIG_HOME/nvim/init.vim to the vimrc file.
+     For vim this can be done by symlinking:
+
+         ln -s ~/.vim/vimrc ~/.vimrc
+
+    For neovim do:
+
+         ln -s ~/.config/nvim/vimrc ~/.config/nvim/init.vim
 
 #### Dependencies:
 
@@ -21,4 +27,8 @@ Installation instructions
 
         sudo apt install universal-ctags
 
-  - I'd recommend universal-ctags - it's a maintained fork of exuberant-ctags, but is only avaliable in the Ubuntu repos from disco (19.04) onwards. If you're on an older version I would suggest building universal-ctags from source rather than using exuberant-ctags (I recall discovering universal ctags after having problems with exuberant-ctags).
+  - I'd recommend universal-ctags - it's a maintained fork of exuberant-ctags, but is only available in the Ubuntu repositories from disco (19.04) onwards. If you're on an older version I would suggest building universal-ctags from source rather than using exuberant-ctags (I recall discovering universal-ctags after having problems with exuberant-ctags).
+
+#### Vim compatibility
+
+I generally use neovim, but hopefully the configuration here should work with modern versions of vim (probably not the smaller builds) as well. I only use vim occasionally and if I encounter problems I fix them, but things might break for vim in between times that I load up vim.

@@ -1,4 +1,5 @@
 # vim meta files
 .netrwhist
+init.vim
 TODO
 tags
