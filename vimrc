@@ -62,6 +62,22 @@ else
     set nomodeline
 end
 " }}}
+" Spelling {{{
+" --------------------------------------------------------------------
+set spelllang=en_au
+let g:spellfile_prefix = 'general'
+
+function! SpellFile(prefix)
+    if has('nvim')
+        let path = stdpath('config') . '/spell/'
+    else
+        let path = '~/.vim/spell/'
+    endif
+    return path . a:prefix . '.' . &encoding . '.add'
+endfunction
+
+execute 'set spellfile=' . SpellFile(g:spellfile_prefix)
+" }}}
 " Filetype settings {{{
 " --------------------------------------------------------------------
 filetype plugin indent on       "load ftplugins and indent files
