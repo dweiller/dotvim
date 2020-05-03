@@ -42,3 +42,12 @@
 [submodule "ale"]
 	path = pack/bundle/start/ale
 	url = https://github.com/dense-analysis/ale.git
+[submodule "nvim-lsp"]
+	path = pack/nvim/opt/nvim-lsp
+	url = https://github.com/neovim/nvim-lsp.git
+[submodule "nvim-treesitter"]
+	path = pack/nvim/opt/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter.git
+[submodule "nvim-colorizer.lua"]
+	path = pack/nvim/opt/nvim-colorizer
+	url = https://github.com/norcalli/nvim-colorizer.lua.git
