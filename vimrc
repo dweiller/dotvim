@@ -50,6 +50,7 @@ endif
 "----------------------------------------------------------------------
 command! DiffOrig vert new | set bt=nofile | 0r ++edit #
             \ | diffthis | wincmd p | diffthis
+command! BClose if bufname('#') != '' | b # | bd # | endif
 " }}}
 " Modeline {{{
 " ---------------------------------------------------------------------
