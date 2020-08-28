@@ -50,7 +50,7 @@ function! s:input()
     endif
 
     let [m_lnum, m_col] =
-        \ searchpairpos(char, '', v:char, 'nW', 0, line('w$'), g:OverPair_timeout)
+        \ searchpairpos(char, '', v:char, 'nW', '', line('w$'), g:OverPair_timeout)
     if m_lnum > 0
         call cursor(m_lnum, m_col + 1)
         let v:char = ''
@@ -60,10 +60,10 @@ endfunction
 function! s:unbalanced(c1, c2)
     let r_val = 0
     let save_cursor = getcurpos()
-    if searchpair(a:c1, '', a:c2, 'brW', 0, line('w0'), g:OverPair_timeout) <= 0
+    if searchpair(a:c1, '', a:c2, 'brW', '', line('w0'), g:OverPair_timeout) <= 0
         let r_val = 1
     endif
-    if searchpair(a:c1, '', a:c2, 'W', 0, line('w$'), g:OverPair_timeout) <= 0
+    if searchpair(a:c1, '', a:c2, 'W', '', line('w$'), g:OverPair_timeout) <= 0
         let r_val = 1
     endif
     call setpos('.', save_cursor)
