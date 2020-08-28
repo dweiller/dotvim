@@ -64,19 +64,43 @@ end
 " }}}
 " Spelling {{{
 " --------------------------------------------------------------------
-set spelllang=en_au
-let g:spellfile_prefix = 'general'
+set spelllang=en_au,en_gb
+let g:spellfile_basic = 'general'
+if has('nvim')
+    let g:custom_spellfile_path = stdpath('config') . '/spell/'
+else
+    let g:custom_spellfile_path = '~/.vim/spell/'
+endif
 
-function! SpellFile(prefix)
-    if has('nvim')
-        let path = stdpath('config') . '/spell/'
-    else
-        let path = '~/.vim/spell/'
-    endif
-    return path . a:prefix . '.' . &encoding . '.add'
+function! CustomSpell_File(name, ...)
+    let path = fnamemodify(a:0 ? a:1 : g:custom_spellfile_path, ':p')
+    return g:custom_spellfile_path . a:name . '.' . &encoding . '.add'
 endfunction
 
-execute 'set spellfile=' . SpellFile(g:spellfile_prefix)
+function! CustomSpell_Files(...)
+    let path = fnamemodify(a:0 ? a:1 : g:custom_spellfile_path, ':p')
+    return globpath(path, '*.add*', '', 1)
+endfunction
+
+function! CustomSpell_Complete(arglead, cmdline, cpos)
+    let files = CustomSpell_Files()
+    call map(files, 'fnamemodify(v:val , ":p:t:r:r")')
+    return files
+endfunction
+
+function! CustomSpell_RemoveFiles(...)
+    if ! a:0
+        return
+    endif
+    for name in a:000
+        execute 'set spellfile-=' . CustomSpell_File(name)
+    endif
+endfunction
+
+execute 'set spellfile=' . CustomSpell_File(g:spellfile_basic)
+
+command! -nargs=? -complete=customlist,CustomSpell_Complete UseSpellFile execute 'set spellfile-=' . CustomSpell_File(<f-args>) . '| set spellfile^=' . CustomSpell_File(<f-args>)
+command! -nargs=+ -complete=customlist,CustomSpell_Complete RemoveSpellFile execute 'set spellfile-=' . CustomSpell_File(<f-args>)
 " }}}
 " Filetype settings {{{
 " --------------------------------------------------------------------
