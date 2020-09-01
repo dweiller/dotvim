@@ -3,17 +3,17 @@ Installation instructions
 
   1. Clone the repository:
 
-         git clone --recurse-submodules git://github.com/dweiller/dotvim.git REPO
+         git clone --recurse-submodules git://github.com/dweiller/dotvim.git CONFIG
 
-     where `REPO` should be `~/.vim` and `.config/nvim` for neovim. If the directory exists, ether remove it first or you'll have to integrate this repo manually into your setup.
+     where `CONFIG` should be `~/.vim` vim and `.config/nvim` for neovim. If the directory exists, ether remove it first or you'll have to integrate this repo manually into your setup.
 
-  2. Run make sure `vimrc` is sourced by (neo)vim (and `REPO` is on the runtimepath if you didn't clone it into the suggested place).
+  2. Make sure `vimrc` is sourced by (neo)vim (and `CONFIG` is on the runtimepath if you didn't clone it into the suggested place).
 
      For vim this can be done by symlinking:
 
          ln -s ~/.vim/vimrc ~/.vimrc
 
-    For neovim do:
+     For neovim do:
 
          ln -s ~/.config/nvim/vimrc ~/.config/nvim/init.vim
 
