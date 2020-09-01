@@ -2,9 +2,6 @@
 	path = pack/bundle/start/snipmate.vim
 	url = https://github.com/garbas/vim-snipmate.git
 	ignore = dirty
-[submodule "syntastic"]
-	path = pack/bundle/start/syntastic
-	url = https://github.com/scrooloose/syntastic.git
 [submodule "vim-numbertoggle"]
 	path = pack/bundle/start/vim-numbertoggle
 	url = https://github.com/jeffkreeftmeijer/vim-numbertoggle.git
@@ -42,3 +39,6 @@
 [submodule "auto-pairs"]
 	path = pack/bundle/start/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs.git
+[submodule "ale"]
+	path = pack/bundle/start/ale
+	url = https://github.com/dense-analysis/ale.git
