@@ -39,3 +39,6 @@
 [submodule "vim-sandwich"]
 	path = pack/bundle/start/vim-sandwich
 	url = https://github.com/machakann/vim-sandwich.git
+[submodule "auto-pairs"]
+	path = pack/bundle/start/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs.git
