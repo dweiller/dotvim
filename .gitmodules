@@ -51,3 +51,6 @@
 [submodule "nvim-colorizer.lua"]
 	path = pack/nvim/opt/nvim-colorizer
 	url = https://github.com/norcalli/nvim-colorizer.lua.git
+[submodule "completion-nvim"]
+	path = pack/nvim/start/completion-nvim
+	url = https://github.com/nvim-lua/completion-nvim.git
