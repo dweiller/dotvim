@@ -25,9 +25,9 @@ syntax match FENRank5 "/[^/]\+" nextgroup=FENRank4 contains=@FENPieces contained
 syntax match FENRank4 "/[^/]\+" nextgroup=FENRank3 contains=@FENPieces contained
 syntax match FENRank3 "/[^/]\+" nextgroup=FENRank2 contains=@FENPieces contained
 syntax match FENRank2 "/[^/]\+" nextgroup=FENRank1 contains=@FENPieces contained
-syntax match FENRank1 "/[^/ ]\+" nextgroup=FENActiveColour contains=@FENPieces contained
+syntax match FENRank1 "/[^/ ]\+" nextgroup=FENActive contains=@FENPieces contained
 
-syntax match FENActiveColour " \+[wb]" nextgroup=FENCastling contains=FENSpaceError contained
+syntax match FENActive " \+[wb]" nextgroup=FENCastling contains=FENSpaceError contained
 syntax match FENCastling " \+[kKqQ]\+\| \+-" nextgroup=ChessSquare contains=FENSpaceError contained
 syntax match ChessSquare " \+[a-h][1-8]\| \+-" nextgroup=FENHalfmove contains=FENSpaceError contained
 syntax match FENHalfmove " \+\d\+" nextgroup=FENFullmove contains=FENSpaceError contained
@@ -42,7 +42,7 @@ highlight default link FENWhite Function
 highlight default link FENBlack Character
 highlight default link FENBlank Number
 highlight default link FENRankSeparator Delimiter
-highlight default link FENActiveColour Todo
+highlight default link FENActive Todo
 highlight default link FENHalfmove Number
 highlight default link FENFullmove Number
 highlight default link FENComment Comment
