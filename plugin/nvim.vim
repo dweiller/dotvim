@@ -6,7 +6,7 @@ packadd nvim-lsp
 
 
 lua <<EOF
-    local lsp = require('nvim_lsp')
+    local lspconfig = require('lspconfig')
 
     local function mapper(mode, key, result)
         vim.api.nvim_buf_set_keymap(0, mode, key, result, {noremap = true, slient})
@@ -29,7 +29,7 @@ lua <<EOF
         vim.cmd('setlocal completeopt=menuone,noinsert,noselect')
     end
 
-    lsp.texlab.setup({
+    lspconfig.texlab.setup({
                 on_attach = custom_on_attach,
                 settings  = {
                     latex = {
