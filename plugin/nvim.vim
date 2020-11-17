@@ -40,4 +40,15 @@ lua <<EOF
                     }
                 }
             })
+
+    lspconfig.ocamllsp.setup({
+                on_attach = custom_on_attach,
+                root_dir = lspconfig.util.root_pattern(
+                                'dune-project',
+                                'dune-workspace',
+                                '*.opam',
+                                'package.json',
+                                '.merlin',
+                                'dune')
+            })
 EOF
