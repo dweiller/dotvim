@@ -22,6 +22,8 @@ set ruler
 set showcmd                     "show incomplete commands
 set showmatch                   "highlight matching braces
 set showmode                    "show current mode
+set number                      "show line numbers
+set relativenumber              "show relative line numbers
 
 "  window options
 set splitbelow                  "open splits below
