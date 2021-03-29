@@ -1,11 +1,10 @@
 [submodule "snipmate.vim"]
 	path = pack/bundle/start/snipmate.vim
 	url = https://github.com/garbas/vim-snipmate.git
-	ignore = dirty
 [submodule "vim-numbertoggle"]
 	path = pack/bundle/start/vim-numbertoggle
 	url = https://github.com/jeffkreeftmeijer/vim-numbertoggle.git
-	ignore = dirty
+	ignore = untracked
 [submodule "ctrlp.vim"]
 	path = pack/bundle/start/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
@@ -45,12 +44,14 @@
 [submodule "nvim-lsp"]
 	path = pack/nvim/opt/nvim-lsp
 	url = https://github.com/neovim/nvim-lsp.git
+        ignore = untracked
 [submodule "nvim-treesitter"]
 	path = pack/nvim/opt/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter.git
 [submodule "nvim-colorizer.lua"]
 	path = pack/nvim/opt/nvim-colorizer
 	url = https://github.com/norcalli/nvim-colorizer.lua.git
+        ignore = untracked
 [submodule "completion-nvim"]
 	path = pack/nvim/start/completion-nvim
 	url = https://github.com/nvim-lua/completion-nvim.git
