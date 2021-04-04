@@ -51,4 +51,8 @@ lua <<EOF
                         '.merlin',
                         'dune')
     }
+
+    lspconfig.zls.setup {
+        on_attach = custom_on_attach
+    }
 EOF

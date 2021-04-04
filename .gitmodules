@@ -55,3 +55,6 @@
 [submodule "completion-nvim"]
 	path = pack/nvim/start/completion-nvim
 	url = https://github.com/nvim-lua/completion-nvim.git
+[submodule "zig.vim"]
+	path = pack/bundle/start/zig.vim
+	url = https://github.com/ziglang/zig.vim.git
