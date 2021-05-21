@@ -56,3 +56,13 @@ lua <<EOF
         on_attach = custom_on_attach
     }
 EOF
+
+packadd nvim-treesitter
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+    highlight = { enable = true, },
+    indent = { enable = true, },
+    incremental_selection = { enable = true, },
+}
+EOF
