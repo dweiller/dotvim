@@ -3,12 +3,9 @@ if exists("did_load_filetypes")
     finish
 endif
 augroup filetypedetect
-    autocmd!
-    autocmd BufRead,BufNewFile *.cls setfiletype tex
+    autocmd! BufRead,BufNewFile *.cls setfiletype tex
 
-    " vim help files not in $RUNTIMEPATH
-    autocmd BufRead,BufNewFile */pack/*/start/*/doc/*.txt setfiletype help
-    autocmd BufRead,BufNewFile */pack/*/opt/*/doc/*.txt setfiletype help
-    autocmd BufRead,BufNewFile ~/.config/nvim/*/doc/*.txt setfiletype help
-    autocmd BufRead,BufNewFile ~/.vim/*doc/*.txt setfiletype help
+    autocmd! BufNewFile,BufRead *.csv setfiletype csv
+    autocmd! BufNewFile,BufRead *.fen setfiletype fen
+    autocmd! BufNewFile,BufRead Tupfile,Tuprules.tup setfiletype tup
 augroup END
