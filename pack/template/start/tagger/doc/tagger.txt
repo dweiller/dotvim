@@ -105,3 +105,6 @@ knows about Tagger.
 :TaggerAll [pat [txt]]  The same as above, except that all tags matching the
                         pattern are replaced. If [txt] is not given then any
                         tag without a defined expression will be skipped.
+
+==============================================================================
+ vim:tw=78:ts=4:et:ft=help:norl:
