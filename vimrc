@@ -238,6 +238,14 @@ inoremap <c-j> <esc>gUiWEa
 
 "  tagbar
 nnoremap <silent> <F9> :TagbarToggle<CR>
+
+"  nohlsearch on <CR> if currently highlighting search
+nnoremap <expr> <silent> <CR> {-> v:hlsearch ? ":nohlsearch<CR>" : "<CR>"}()
+
+nnoremap <leader>h :lnext<CR>
+nnoremap <leader>l :lprevious<CR>
+nnoremap <leader>j :cnext<CR>
+nnoremap <leader>k :cprevious<CR>
 " }}}
 " Status line {{{
 " --------------------------------------------------------------------
