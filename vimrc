@@ -240,7 +240,11 @@ inoremap <c-j> <esc>gUiWEa
 nnoremap <silent> <F9> :TagbarToggle<CR>
 
 "  nohlsearch on <CR> if currently highlighting search
-nnoremap <expr> <silent> <CR> {-> v:hlsearch ? ":nohlsearch<CR>" : "<CR>"}()
+if has('nvim')
+    nnoremap <expr> <silent> <CR> {-> v:hlsearch ? ":nohlsearch<CR>:lua require('hlnext').HLNextOff()<CR>" : "<CR>"}()
+else
+    nnoremap <expr> <silent> <CR> {-> v:hlsearch ? ":nohlsearch<CR>" : "<CR>"}()
+endif
 
 nnoremap <leader>h :lnext<CR>
 nnoremap <leader>l :lprevious<CR>

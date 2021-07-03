@@ -12,37 +12,20 @@ endif
 let g:loaded_hlnext = 1
 
 if maparg('n', 'n') == ""
-    nnoremap <silent> n n:call <SID>HLNext()<CR>
+    nnoremap <silent> n n:lua require("hlnext").HLNext()<CR>
 endif
 if maparg('N', 'n') == ""
-    nnoremap <silent> N N:call <SID>HLNext()<CR>
+    nnoremap <silent> N N:lua require("hlnext").HLNext()<CR>
 endif
 if maparg('*', 'n') == ""
-    nnoremap <silent> * *:call <SID>HLNext()<CR>
+    nnoremap <silent> * *:lua require("hlnext").HLNext()<CR>
 endif
 if maparg('#', 'n') == ""
-    nnoremap <silent> # #:call <SID>HLNext()<CR>
+    nnoremap <silent> # #:lua require("hlnext").HLNext()<CR>
 endif
 
 highlight default link HLNext IncSearch
 
 augroup plugin-HLNext
-    autocmd! CmdlineLeave [/?] :call timer_start(0, { arg -> s:HLNext() })
+    autocmd! CmdlineLeave [/?] :lua vim.schedule(require('hlnext').HLNext)
 augroup END
-
-function! s:HLNext()
-    call s:HLNextOff()
-    let target_pat = '\c\%#\('.@/.'\)'
-    let w:HLNext_matchnum = matchadd('HLNext', target_pat, 101)
-    augroup plugin-HLNext
-        autocmd! CursorMoved * :call s:HLNextOff()
-                                \ | autocmd! plugin-HLNext CursorMoved
-    augroup END
-endfunction
-
-function! s:HLNextOff()
-    if (exists('w:HLNext_matchnum') && w:HLNext_matchnum > 0)
-        call matchdelete(w:HLNext_matchnum)
-        unlet w:HLNext_matchnum
-    endif
-endfunction
