@@ -1,4 +1,18 @@
+-- nvim-compe
+vim.o.completeopt = 'menuone,noselect,noinsert'
+require('compe').setup({
+    source = {
+        path = true,
+        buffer = true,
+        calc = true,
+        omni = true,
+        nvim_lsp = true,
+        nvim_lua = true,
+        nvim_treesitter = true,
+    }
+})
 
+-- nvim-lsp
 vim.api.nvim_command('packadd nvim-lsp')
 
 local lspconfig = require('lspconfig')
@@ -8,8 +22,6 @@ local function mapper(mode, key, result)
 end
 
 local function custom_on_attach(client)
-    require('completion').on_attach(client)
-
     mapper('n', 'gd',    '<cmd>lua vim.lsp.buf.declaration()<CR>')
     mapper('n', '<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>')
     mapper('n', 'K',     '<cmd>lua vim.lsp.buf.hover()<CR>')
@@ -51,6 +63,7 @@ lspconfig.zls.setup {
     on_attach = custom_on_attach
 }
 
+-- nvim-treesitter
 vim.api.nvim_command('packadd nvim-treesitter')
 
 require'nvim-treesitter.configs'.setup {
