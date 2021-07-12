@@ -76,3 +76,7 @@ local parser_config = require 'nvim-treesitter.parsers'.get_parser_configs()
 parser_config.fen = {
     filetype = 'fen',
 }
+
+parser_config.gcode = {
+    filetype = 'gcode',
+}
