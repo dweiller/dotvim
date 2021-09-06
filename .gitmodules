@@ -55,7 +55,15 @@
 [submodule "zig.vim"]
 	path = pack/bundle/start/zig.vim
 	url = https://github.com/ziglang/zig.vim.git
-[submodule "nvim-compe"]
-	path = pack/nvim/start/nvim-compe
-	url = https://github.com/hrsh7th/nvim-compe.git
-	ignore = untracked
+[submodule "nvim-cmp"]
+	path = pack/nvim/start/nvim-cmp
+	url = https://github.com/hrsh7th/nvim-cmp.git
+[submodule "cmp-nvim-lsp"]
+	path = pack/nvim/start/cmp-nvim-lsp
+	url = https://github.com/hrsh7th/cmp-nvim-lsp.git
+[submodule "cmp-nvim-lua"]
+	path = pack/nvim/start/cmp-nvim-lua
+	url = https://github.com/hrsh7th/cmp-nvim-lua.git
+[submodule "cmp-path"]
+	path = pack/nvim/start/cmp-path
+	url = https://github.com/hrsh7th/cmp-path.git

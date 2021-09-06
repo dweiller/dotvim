@@ -1,16 +1,15 @@
--- nvim-compe
-vim.o.completeopt = 'menuone,noselect,noinsert'
-require('compe').setup({
-    source = {
-        path = true,
-        buffer = true,
-        calc = true,
-        omni = true,
-        nvim_lsp = true,
-        nvim_lua = true,
-        nvim_treesitter = true,
-    }
-})
+-- nvim-cmp
+local cmp = require('cmp')
+cmp.setup {
+    sources = {
+        { name = 'nvim_lsp' },
+        { name = 'nvim_lua' },
+        { name = 'path' },
+    },
+}
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- nvim-lsp
 vim.api.nvim_command('packadd nvim-lsp')
@@ -45,7 +44,8 @@ lspconfig.texlab.setup {
                 args = { "%p", "%l", "%f" }
             }
         }
-    }
+    },
+    capabilities = capabilities,
 }
 
 lspconfig.ocamllsp.setup {
@@ -56,11 +56,13 @@ lspconfig.ocamllsp.setup {
                     '*.opam',
                     'package.json',
                     '.merlin',
-                    'dune')
+                    'dune'),
+    capabilities = capabilities,
 }
 
 lspconfig.zls.setup {
-    on_attach = custom_on_attach
+    on_attach = custom_on_attach,
+    capabilities = capabilities,
 }
 
 -- nvim-treesitter
