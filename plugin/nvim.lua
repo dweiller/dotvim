@@ -1,3 +1,8 @@
+-- bail out if bootstrapping
+if _G['bootstrap-paq'] then
+    return
+end
+
 -- nvim-cmp
 local cmp = require('cmp')
 cmp.setup {
@@ -12,8 +17,6 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- nvim-lsp
-vim.api.nvim_command('packadd nvim-lsp')
-
 local lspconfig = require('lspconfig')
 
 local function mapper(mode, key, result)
@@ -66,8 +69,6 @@ lspconfig.zls.setup {
 }
 
 -- nvim-treesitter
-vim.api.nvim_command('packadd nvim-treesitter')
-
 require'nvim-treesitter.configs'.setup {
     highlight = { enable = true, },
     indent = { enable = true, },

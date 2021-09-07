@@ -41,29 +41,6 @@
 [submodule "ale"]
 	path = pack/bundle/start/ale
 	url = https://github.com/dense-analysis/ale.git
-[submodule "nvim-lsp"]
-	path = pack/nvim/opt/nvim-lsp
-	url = https://github.com/neovim/nvim-lsp.git
-        ignore = untracked
-[submodule "nvim-treesitter"]
-	path = pack/nvim/opt/nvim-treesitter
-	url = https://github.com/nvim-treesitter/nvim-treesitter.git
-[submodule "nvim-colorizer.lua"]
-	path = pack/nvim/opt/nvim-colorizer
-	url = https://github.com/norcalli/nvim-colorizer.lua.git
-        ignore = untracked
 [submodule "zig.vim"]
 	path = pack/bundle/start/zig.vim
 	url = https://github.com/ziglang/zig.vim.git
-[submodule "nvim-cmp"]
-	path = pack/nvim/start/nvim-cmp
-	url = https://github.com/hrsh7th/nvim-cmp.git
-[submodule "cmp-nvim-lsp"]
-	path = pack/nvim/start/cmp-nvim-lsp
-	url = https://github.com/hrsh7th/cmp-nvim-lsp.git
-[submodule "cmp-nvim-lua"]
-	path = pack/nvim/start/cmp-nvim-lua
-	url = https://github.com/hrsh7th/cmp-nvim-lua.git
-[submodule "cmp-path"]
-	path = pack/nvim/start/cmp-path
-	url = https://github.com/hrsh7th/cmp-path.git
