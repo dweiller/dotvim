@@ -27,5 +27,5 @@ endif
 highlight default link HLNext IncSearch
 
 augroup plugin-HLNext
-    autocmd! CmdlineLeave [/?] :lua vim.schedule(require('hlnext').HLNext)
+    autocmd! CmdlineLeave [/\?] :lua vim.schedule(require('hlnext').HLNext)
 augroup END
