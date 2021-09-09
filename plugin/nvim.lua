@@ -92,3 +92,6 @@ parser_config.fen = {
 parser_config.gcode = {
     filetype = 'gcode',
 }
+
+-- gitsigns.nvim
+require'gitsigns'.setup()

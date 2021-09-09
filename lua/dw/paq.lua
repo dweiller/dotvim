@@ -37,6 +37,8 @@ require 'paq' {
     'saadparwaiz1/cmp_luasnip',
     'b3nj5m1n/kommentary',
     'JoosepAlviste/nvim-ts-context-commentstring',
+    'nvim-lua/plenary.nvim',
+    'lewis6991/gitsigns.nvim'
 }
 
 if download_packages then
