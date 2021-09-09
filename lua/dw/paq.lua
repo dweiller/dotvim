@@ -31,6 +31,7 @@ require 'paq' {
     'hrsh7th/nvim-cmp',
     'neovim/nvim-lspconfig',
     'nvim-treesitter/nvim-treesitter',
+    'nvim-treesitter/playground',
     {'norcalli/nvim-colorizer.lua', opt=true},
     'L3MON4D3/LuaSnip',
     'saadparwaiz1/cmp_luasnip',
