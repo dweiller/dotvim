@@ -34,6 +34,7 @@ require 'paq' {
     {'norcalli/nvim-colorizer.lua', opt=true},
     'L3MON4D3/LuaSnip',
     'saadparwaiz1/cmp_luasnip',
+    'b3nj5m1n/kommentary',
 }
 
 if download_packages then
