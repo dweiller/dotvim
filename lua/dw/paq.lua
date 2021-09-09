@@ -35,6 +35,7 @@ require 'paq' {
     'L3MON4D3/LuaSnip',
     'saadparwaiz1/cmp_luasnip',
     'b3nj5m1n/kommentary',
+    'JoosepAlviste/nvim-ts-context-commentstring',
 }
 
 if download_packages then
