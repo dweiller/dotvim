@@ -33,6 +33,7 @@ require 'paq' {
     'nvim-treesitter/nvim-treesitter',
     {'norcalli/nvim-colorizer.lua', opt=true},
     'L3MON4D3/LuaSnip',
+    'saadparwaiz1/cmp_luasnip',
 }
 
 if download_packages then
