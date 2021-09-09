@@ -381,10 +381,6 @@ if executable('opam')
     execute "set rtp+=" . g:opamshare . "/merlin/vim"
 endif
 " }}}
-" vim-snipmate {{{
-let g:snipMate = {}
-let g:snipMate.snippet_version = 1
-" }}}
 " vim-sandwich {{{
 " --------------------------------------------------------------------
 "  use vim-surround style keymap instead of the default

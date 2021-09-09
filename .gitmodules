@@ -1,6 +1,3 @@
-[submodule "snipmate.vim"]
-	path = pack/bundle/start/snipmate.vim
-	url = https://github.com/garbas/vim-snipmate.git
 [submodule "vim-numbertoggle"]
 	path = pack/bundle/start/vim-numbertoggle
 	url = https://github.com/jeffkreeftmeijer/vim-numbertoggle.git
