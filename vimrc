@@ -386,6 +386,12 @@ endif
 "  use vim-surround style keymap instead of the default
 runtime START macros/sandwich/keymap/surround.vim
 " }}}
+" zig.vim {{{
+" --------------------------------------------------------------------
+" disable formatting on save, this causes huge latency issue (probably because
+" of lsp or nvim-cmp) on larger files, eg lib/std/build.zig
+let g:zig_fmt_autosave = 0
+" }}}
 " load/setup paq {{{
 " --------------------------------------------------------------------
 lua require('dw.paq')
