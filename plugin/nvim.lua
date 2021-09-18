@@ -39,6 +39,8 @@ local function custom_on_attach(client)
     mapper('n', 'gr',    '<cmd>lua vim.lsp.buf.references()<CR>')
     mapper('n', 'g0',    '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
     mapper('n', 'gW',    '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
+    mapper('n', '<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+    mapper('v', '<leader>=', '<cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>')
 
     vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
     vim.api.nvim_set_option('completeopt', 'menuone,noinsert,noselect')
