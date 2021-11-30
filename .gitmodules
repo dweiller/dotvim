@@ -5,9 +5,6 @@
 [submodule "ctrlp.vim"]
 	path = pack/bundle/start/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule "vim-easymotion"]
-	path = pack/bundle/start/vim-easymotion
-	url = https://github.com/Lokaltog/vim-easymotion.git
 [submodule "vim-multiple-cursors"]
 	path = pack/bundle/start/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git

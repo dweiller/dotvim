@@ -38,7 +38,8 @@ require 'paq' {
     'b3nj5m1n/kommentary',
     'JoosepAlviste/nvim-ts-context-commentstring',
     'nvim-lua/plenary.nvim',
-    'lewis6991/gitsigns.nvim'
+    'lewis6991/gitsigns.nvim',
+    'ggandor/lightspeed.nvim',
 }
 
 if download_packages then
