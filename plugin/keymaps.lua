@@ -13,7 +13,7 @@ vim.g.kommentary_create_default_mappings = false
 mappings.kommentary = {
     { 'n', '<leader>cc', '<Plug>kommentary_line_default', {} },
     { 'n', '<leader>c', '<Plug>kommentary_motion_default', {} },
-    { 'x', '<leader>c', '<Plug>kommentary_visual_default', {} },
+    { 'x', '<leader>c', '<Plug>kommentary_visual_default<ESC>', {} },
     { 'n', '<leader>ic', '<Plug>kommentary_line_increase', {} },
     { 'x', '<leader>ic', '<Plug>kommentary_visual_increase', {} },
     { 'n', '<leader>dc', '<Plug>kommentary_line_decrease', {} },
