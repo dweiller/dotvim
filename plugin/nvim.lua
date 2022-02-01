@@ -97,3 +97,6 @@ parser_config.gcode = {
 
 -- gitsigns.nvim
 require'gitsigns'.setup()
+
+-- zettelkasten
+require'zettelkasten'.setup()

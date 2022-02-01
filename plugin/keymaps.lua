@@ -20,6 +20,11 @@ mappings.kommentary = {
     { 'x', '<leader>dc', '<Plug>kommentary_visual_decrease', {} },
 }
 
+mappings.zettelkasten = {
+    { 'n', '<leader>zi', '<cmd>lua require"zettelkasten".open_index()<CR>', {} },
+    { 'n', '<leader>zn', '<cmd>lua require"zettelkasten".new_zettel()<CR>', {} },
+}
+
 for _, plugin in pairs(mappings) do
     for _, v in ipairs(plugin) do
         vim.api.nvim_set_keymap(unpack(v))
