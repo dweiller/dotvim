@@ -1,5 +1,10 @@
 local mappings = {}
 
+mappings.general = {
+    { 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', { noremap = true } },
+    { 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', { noremap = true } },
+}
+
 mappings.luasnip = {
     { 'i', '<Tab>', "luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'", { expr = true } },
     { 's', '<Tab>', '<cmd>lua require"luasnip".jump(1)<CR>', { noremap = true } },
