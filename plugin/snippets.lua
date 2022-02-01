@@ -29,8 +29,12 @@ local function make(tbl)
     for k, v in pairs(tbl) do
         local opts = {}
         opts.trig = k
-        for opt, o_val in pairs(v) do
-            opts[opt] = o_val
+        if type(v) == 'table' then
+            for opt, o_val in pairs(v) do
+                if type(opt) == 'string' then
+                    opts[opt] = o_val
+                end
+            end
         end
         table.insert(result, snippet(opts, wrap(v)))
     end
@@ -61,6 +65,10 @@ snippets.zig = make {
         t { ';', '' },
         i(0),
     },
+    impstd = {
+        dscr = 'import std',
+        t {'const std = @import("std");', ''},
+    }
 }
 
 local function envSnip(envtype, default)
