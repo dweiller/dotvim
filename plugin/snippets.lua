@@ -116,6 +116,14 @@ local function thmSnip(thmtype)
     }
 end
 
+local function enumSnip(enumtype)
+    return {
+        t { '\\begin{' .. enumtype .. '}', '\t\\item ' },
+        i(1),
+        t { '', '\\end{' .. enumtype .. '}', '' }
+    }
+end
+
 snippets.tex = make {
     begin = {
         '\\begin{',
@@ -161,6 +169,8 @@ snippets.tex = make {
         i(1, 'LABEL'),
         t { '}', '\\end{subfigure}' },
     },
+    item = enumSnip('itemize'),
+    enum = enumSnip('enumerate'),
 }
 
 local function kvpair(idx, name)
