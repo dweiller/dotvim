@@ -79,8 +79,8 @@ TODO:
 
 local function setup_buffer(buf)
     buf = buf or vim.api.nvim_get_current_buf()
-    vim.api.nvim_buf_set_keymap(buf, 'n', config.mapping.follow_link,
-        '<cmd>lua require"zettelkasten".open_link()<CR>', { noremap = true })
+    vim.keymap.set('n', config.mapping.follow_link,
+        function() require"zettelkasten".open_link() end, { buffer = buf, noremap = true })
 end
 
 local default_config = {
