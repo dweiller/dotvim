@@ -1,17 +1,15 @@
 local mappings = {}
 
 mappings.general = {
-    { 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', { noremap = true } },
-    { 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', { noremap = true } },
+    { 'n', '[d', vim.diagnostic.goto_prev, { noremap = true } },
+    { 'n', ']d', vim.diagnostic.goto_next, { noremap = true } },
 }
 
 mappings.luasnip = {
-    { 'i', '<Tab>', "luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'", { expr = true } },
-    { 's', '<Tab>', '<cmd>lua require"luasnip".jump(1)<CR>', { noremap = true } },
-    { 'i', '<S-Tab>', '<cmd>lua require"luasnip".jump(-1)<CR>', { noremap = true } },
-    { 's', '<S-Tab>', '<cmd>lua require"luasnip".jump(-1)<CR>', { noremap = true } },
-    { 'i', '<C-E>', '<Plug>luasnip-next-choice', {} },
-    { 's', '<C-E>', '<Plug>luasnip-next-choice', {} },
+    { 'i', '<Tab>', "luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'", { remap = true, expr = true } },
+    { 's', '<Tab>', function() require"luasnip".jump(1) end, { noremap = true } },
+    { {'i', 's'}, '<S-Tab>', function() require"luasnip".jump(-1) end, { noremap = true } },
+    { {'i', 's'}, '<C-E>', '<Plug>luasnip-next-choice', {} },
 }
 
 vim.g.kommentary_create_default_mappings = false
@@ -26,12 +24,12 @@ mappings.kommentary = {
 }
 
 mappings.zettelkasten = {
-    { 'n', '<leader>zi', '<cmd>lua require"zettelkasten".open_index()<CR>', {} },
-    { 'n', '<leader>zn', '<cmd>lua require"zettelkasten".new_zettel()<CR>', {} },
+    { 'n', '<leader>zi', function() require"zettelkasten".open_index() end, { noremap = true } },
+    { 'n', '<leader>zn', function() require"zettelkasten".new_zettel() end, { noremap = true } },
 }
 
 for _, plugin in pairs(mappings) do
     for _, v in ipairs(plugin) do
-        vim.api.nvim_set_keymap(unpack(v))
+        vim.keymap.set(unpack(v))
     end
 end
