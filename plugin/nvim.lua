@@ -25,8 +25,10 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 -- nvim-lsp
 local lspconfig = require('lspconfig')
 
-local function mapper(mode, key, result)
-    vim.api.nvim_buf_set_keymap(0, mode, key, result, {noremap = true, slient})
+local function mapper(mode, key, result, opts)
+    opts = opts or {}
+    opts = vim.tbl_extend('keep', opts, { noremap = true, silent = true })
+    vim.api.nvim_buf_set_keymap(0, mode, key, result, opts)
 end
 
 local function custom_on_attach(client)
@@ -98,7 +100,22 @@ parser_config.gcode = {
 }
 
 -- gitsigns.nvim
-require'gitsigns'.setup()
+require'gitsigns'.setup {
+    on_attach = function(bufnr)
+        mapper('n', ']c', "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", { expr = true })
+        mapper('n', '[c', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", { expr = true })
+        mapper('n', '<leader>hs', '<cmd>lua require"gitsigns".stage_hunk()<CR>')
+        mapper('n', '<leader>hr', '<cmd>lua require"gitsigns".reset_hunk()<CR>')
+        mapper('n', '<leader>hu', '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>')
+        mapper('n', '<leader>hS', '<cmd>lua require"gitsigns".stage_buffer()<CR>')
+        mapper('n', '<leader>hR', '<cmd>lua require"gitsigns".reset_buffer()<CR>')
+        mapper('n', '<leader>hp', '<cmd>lua require"gitsigns".preview_hunk()<CR>')
+        mapper('n', '<leader>hb', '<cmd>lua require"gitsigns".blame_line({ full = true })<CR>')
+        mapper('n', '<leader>hd', '<cmd>lua require"gitsigns".diffthis()<CR>')
+        mapper('n', '<leader>hD', '<cmd>lua require"gitsigns".diffthis("~")<CR>')
+        mapper('n', '<leader>td', '<cmd>lua require"gitsigns".toggle_deleted()<CR>')
+    end,
+}
 
 -- zettelkasten
 require'zettelkasten'.setup()
