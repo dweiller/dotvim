@@ -81,6 +81,7 @@ local function setup_buffer(buf)
     buf = buf or vim.api.nvim_get_current_buf()
     vim.keymap.set('n', config.mapping.follow_link,
         function() require"zettelkasten".open_link() end, { buffer = buf, noremap = true })
+    vim.api.nvim_buf_set_option(buf, 'tw', 80)
 end
 
 local default_config = {
