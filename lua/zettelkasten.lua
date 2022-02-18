@@ -79,8 +79,7 @@ TODO:
 
 local function setup_buffer(buf)
     buf = buf or vim.api.nvim_get_current_buf()
-    vim.keymap.set('n', config.mapping.follow_link,
-        function() require"zettelkasten".open_link() end, { buffer = buf, noremap = true })
+    vim.api.nvim_buf_set_option(buf, 'tagfunc', "v:lua.require'zettelkasten'.tagfunc")
     vim.api.nvim_buf_set_option(buf, 'tw', 80)
 end
 
@@ -108,6 +107,31 @@ local function setup(opts)
     vim.cmd(string.format('autocmd BufNewFile,BufRead %s/*.md lua require"zettelkasten"._setup_buffer()', config.root))
 end
 
+local function tagfunc(pat, flags)
+    if string.match(flags, 'c') then
+        local path, type = get_link()
+        if path then
+            if type == 'internal' then
+                if config.root then
+                    tag = {
+                        name = path,
+                        filename = config.root .. '/' .. path .. '.md',
+                        kind = 'internal',
+                        cmd = "call cursor(0,0)|",
+                    }
+                    return { tag }
+                else
+                    error('zettelkasten: root not set, either set the root option in setup() or ensure the $ZETTELKASTEN_ROOT environment variable is set')
+                end
+            elseif type == 'external' then
+                return {}
+            elseif  type == 'reference' then
+                return {}
+            end
+        end
+    end
+end
+
 local M = {
     open_link = function()
         local path, type = get_link()
@@ -132,6 +156,7 @@ local M = {
         f(buf_num)
     end,
     setup = setup,
+    tagfunc = tagfunc,
 }
 
 return M
