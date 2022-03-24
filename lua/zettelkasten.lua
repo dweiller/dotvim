@@ -1,5 +1,6 @@
 local config = {}
 
+local no_root_msg = 'zettelkasten: root not set, either set the root option in setup() or ensure the $ZETTELKASTEN_ROOT environment variable is set'
 --[[
   Extract the link path of a link, and return it along with its type
 --]]
@@ -47,7 +48,7 @@ local function open_zettel(filename)
     if config.root then
         vim.cmd(':e ' .. config.root .. '/' .. filename .. '.md')
     else
-        error('zettelkasten: root not set, either set the root option in setup() or ensure the $ZETTELKASTEN_ROOT environment variable is set')
+        error(no_root_msg)
     end
 end
 
@@ -102,7 +103,8 @@ local function setup(opts)
     end
     config = vim.tbl_deep_extend('keep', config, default_config)
     if config.root == nil then
-        error('zettelkasten: root not set, either set the root option in setup() or ensure the $ZETTELKASTEN_ROOT environment variable is set')
+        vim.notify(no_root_msg .. '. Aborting setup.', vim.log.levels.WARN)
+        return
     end
     vim.cmd(string.format('autocmd BufNewFile,BufRead %s/*.md lua require"zettelkasten"._setup_buffer()', config.root))
 end
@@ -121,7 +123,7 @@ local function tagfunc(pat, flags)
                     }
                     return { tag }
                 else
-                    error('zettelkasten: root not set, either set the root option in setup() or ensure the $ZETTELKASTEN_ROOT environment variable is set')
+                    error(no_root_msg)
                 end
             elseif type == 'external' then
                 return {}
