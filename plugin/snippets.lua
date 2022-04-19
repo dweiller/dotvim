@@ -206,4 +206,6 @@ snippets.bib = make {
     }
 }
 
-ls.snippets = snippets
+for ft, snippets in pairs(snippets) do
+    ls.add_snippets(ft, snippets)
+end
