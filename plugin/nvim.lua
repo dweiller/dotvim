@@ -123,3 +123,9 @@ require'gitsigns'.setup {
 
 -- zettelkasten
 require'zettelkasten'.setup()
+
+-- kommentary
+require'kommentary.config'.configure_language("arduino", {
+    single_line_comment_string = "//",
+    multi_line_comment_strings = {"/*", "*/"},
+})
