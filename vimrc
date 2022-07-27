@@ -381,7 +381,7 @@ let g:Tagger_exprs = {
 " --------------------------------------------------------------------
 if executable('opam')
     " this will not work if opam config is changed while vim is running...
-    let g:opamshare = substitute(system('opam config var share'), '\n$', '', '''')
+    let g:opamshare = substitute(system('opam var share'), '\n$', '', '''')
     execute "set rtp^=" . g:opamshare . "/ocp-indent/vim"
     execute "set rtp+=" . g:opamshare . "/merlin/vim"
 endif
