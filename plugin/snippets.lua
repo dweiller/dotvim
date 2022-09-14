@@ -82,7 +82,7 @@ local function rec_ls(args, parent, old_state, snip)
             -- important!! Having the sn(...) as the first choice will cause infinite recursion.
             t({""}),
             -- The same dynamicNode as in the snippet (also note: self reference).
-            sn(nil, {snip, d(2, rec_ls, {snip})}),
+            sn(nil, { snip, d(2, rec_ls, {}, { user_args = { snip } }) }),
         }),
     })
 end
@@ -154,14 +154,19 @@ snippets.zig = make {
         'fn ',
         i(1, 'funcName'),
         '(',
-        i(2, 'param'),
-        ': ',
-        i(3, 'Type'),
-        d(4, rec_ls, { sn(1, { t', ', i(1, 'param'), t': ', i(2, 'Type') }) }),
+        c(2, {
+            sn(nil, {
+                i(1, 'param'),
+                t': ',
+                i(2, 'Type'),
+                d(3, rec_ls, {}, { user_args = { sn(1, { t', ', i(1, 'param'), t': ', i(2, 'Type') }) } } )
+            }),
+            t''
+        }),
         ') ',
-        i(5, 'Type'),
+        i(3, 'Type'),
         t{' {', '\t'},
-        i(6),
+        i(k),
         t{'', '}'},
     },
     itw = {
