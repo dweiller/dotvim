@@ -25,7 +25,7 @@ cmp.setup.cmdline {
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- nvim-lsp
 local lspconfig = require('lspconfig')
@@ -48,9 +48,7 @@ local function custom_on_attach(client, bufnr)
     mapper('n', 'g0',    vim.lsp.buf.document_symbol, opts)
     mapper('n', 'gW',    vim.lsp.buf.workspace_symbol, opts)
     mapper('n', '<leader>=', vim.lsp.buf.format, opts)
-    mapper('v', '<leader>=', vim.lsp.buf.range_formatting, opts)
     mapper('n', '<leader>a', vim.lsp.buf.code_action, opts)
-    mapper('v', '<leader>a', vim.lsp.buf.range_code_action, opts)
     mapper('n', '<leader>rn', vim.lsp.buf.rename, opts)
 
     vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
