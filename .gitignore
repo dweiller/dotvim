@@ -1,6 +1,5 @@
 # vim meta files
 .netrwhist
 init.vim
-TODO
 tags
 spell/*.add.spl
