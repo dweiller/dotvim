@@ -208,6 +208,7 @@ augroup nord-theme-overrides
     execute 'autocmd ColorScheme nord highlight User1 guibg=' . g:nord_colour[2] . ' guifg=' . g:nord_colour[7] . ' gui=bold'
     execute 'autocmd ColorScheme nord highlight User2 guibg=' . g:nord_colour[2] . ' guifg=' . g:nord_colour[12] . ' gui=bold'
     execute 'autocmd ColorScheme nord highlight User3 guibg=' . g:nord_colour[2] . ' guifg=' . g:nord_colour[7]
+    execute 'autocmd ColorScheme nord highlight Special guifg=' . g:nord_colour[15]
 augroup END
 colorscheme nord
 " }}}
