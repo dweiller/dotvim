@@ -87,7 +87,10 @@ lspconfig.zls.setup {
 
 -- nvim-treesitter
 require'nvim-treesitter.configs'.setup {
-    highlight = { enable = true, },
+    highlight = {
+        enable = true,
+        disable = { 'help' },
+    },
     indent = { enable = true, },
     incremental_selection = { enable = true, },
     context_commentstring = { enable = true, },
