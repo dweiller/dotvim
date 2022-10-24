@@ -108,12 +108,28 @@ parser_config.gcode = {
 }
 
 -- gitsigns.nvim
+local next_change = function()
+    if vim.wo.diff then
+        return ']c'
+    else
+        return '<cmd>Gitsigns next_hunk<CR>'
+    end
+end
+
+local prev_change = function()
+    if vim.wo.diff then
+        return '[c'
+    else
+        return '<cmd>Gitsigns prev_hunk<CR>'
+    end
+end
+
 require'gitsigns'.setup {
     on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
         local opts = { buffer = bufnr }
-        mapper('n', ']c', "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", { buffer = bufnr, expr = true })
-        mapper('n', '[c', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", { buffer = bufnr, expr = true })
+        mapper('n', ']c', next_change, { buffer = bufnr, expr = true })
+        mapper('n', '[c', prev_change, { buffer = bufnr, expr = true })
         mapper('n', '<leader>hs', gs.stage_hunk, opts)
         mapper('n', '<leader>hr', gs.reset_hunk, opts)
         mapper('n', '<leader>hu', gs.undo_stage_hunk, opts)
