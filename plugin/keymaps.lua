@@ -6,9 +6,9 @@ mappings.general = {
 }
 
 mappings.luasnip = {
-    { 'i', '<Tab>', "luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'", { remap = true, expr = true } },
-    { 's', '<Tab>', function() require"luasnip".jump(1) end, { noremap = true } },
-    { {'i', 's'}, '<S-Tab>', function() require"luasnip".jump(-1) end, { noremap = true } },
+    { 'i', '<Tab>', "luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'", { remap = true, expr = true, replace_keycodes = false } },
+    { 's', '<Tab>', function() require"luasnip".jump(1) end, {} },
+    { {'i', 's'}, '<S-Tab>', function() require"luasnip".jump(-1) end, {} },
     { {'i', 's'}, '<C-E>', '<Plug>luasnip-next-choice', {} },
 }
 
