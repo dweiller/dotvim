@@ -85,6 +85,11 @@ lspconfig.zls.setup {
     capabilities = capabilities,
 }
 
+lspconfig.rust_analyzer.setup {
+    on_attach = custom_on_attach,
+    capabilities = capabilities,
+}
+
 -- nvim-treesitter
 require'nvim-treesitter.configs'.setup {
     highlight = {
