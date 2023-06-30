@@ -29,7 +29,7 @@ local function load_paqs()
         'JoosepAlviste/nvim-ts-context-commentstring',
         'nvim-lua/plenary.nvim',
         'lewis6991/gitsigns.nvim',
-        'ggandor/lightspeed.nvim',
+        'ggandor/leap.nvim',
     }
 end
 

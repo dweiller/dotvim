@@ -101,6 +101,7 @@ require'nvim-treesitter.configs'.setup {
     context_commentstring = { enable = true, },
     playground = { enable = true },
     query_linter = { enable = true },
+    tree_docs = { enable = true },
 }
 
 local parser_config = require 'nvim-treesitter.parsers'.get_parser_configs()
@@ -156,3 +157,6 @@ require'kommentary.config'.configure_language("arduino", {
     single_line_comment_string = "//",
     multi_line_comment_strings = {"/*", "*/"},
 })
+
+-- leap
+require'leap'.add_default_mappings()

@@ -29,19 +29,6 @@ mappings.zettelkasten = {
 }
 
 
-vim.g.lightspeed_no_default_keymaps = true
-mappings.lightspeed = {
-    { 'n', 's', '<Plug>Lightspeed_s' },
-    { 'x', 's', '<Plug>Lightspeed_s' },
-    { 'n', 'S', '<Plug>Lightspeed_S' },
-    { 'n', 'gs', '<Plug>Lightspeed_gs' },
-    { 'n', 'gS', '<Plug>Lightspeed_gS' },
-    { 'o', 'z', '<Plug>Lightspeed_z' },
-    { 'o', 'Z', '<Plug>Lightspeed_Z' },
-    { 'o', 'x', '<Plug>Lightspeed_x' },
-    { 'o', 'X', '<Plug>Lightspeed_X' },
-}
-
 for _, plugin in pairs(mappings) do
     for _, v in ipairs(plugin) do
         vim.keymap.set(unpack(v))
