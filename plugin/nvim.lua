@@ -24,8 +24,7 @@ cmp.setup.cmdline {
     mapping = cmp.mapping.preset.cmdline(),
 }
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- nvim-lsp
 local lspconfig = require('lspconfig')
