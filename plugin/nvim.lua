@@ -91,9 +91,12 @@ lspconfig.rust_analyzer.setup {
 
 -- nvim-treesitter
 require'nvim-treesitter.configs'.setup {
+    ensure_installed = { "vimdoc", "vim", "comment", "markdown", "c", "lua" },
+    sync_install = false,
+    auto_intall = true,
     highlight = {
         enable = true,
-        disable = { 'help' },
+        disable = { 'vimdoc' },
     },
     indent = { enable = true, },
     incremental_selection = { enable = true, },
