@@ -14,7 +14,6 @@ set copyindent                  "copy indent struct when indenting a new line
 set backspace=indent,eol,start  "backspace over everything
 set formatoptions-=o            "don't continue comments when hitting o/O
 
-
 "  display options
 set colorcolumn=+1              "mark ideal max text width
 set cursorline
@@ -24,6 +23,7 @@ set showmatch                   "highlight matching braces
 set showmode                    "show current mode
 set number                      "show line numbers
 set relativenumber              "show relative line numbers
+set scrolloff=4                 "keep context lines when scrolling
 
 "  window options
 set splitbelow                  "open splits below
