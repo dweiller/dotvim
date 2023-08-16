@@ -30,6 +30,7 @@ local function load_paqs()
         'nvim-lua/plenary.nvim',
         'lewis6991/gitsigns.nvim',
         'ggandor/leap.nvim',
+        {'nvim-telescope/telescope.nvim', branch = '0.1.x'},
     }
 end
 

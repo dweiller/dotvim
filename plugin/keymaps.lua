@@ -23,6 +23,14 @@ mappings.kommentary = {
     { 'x', '<leader>dc', '<Plug>kommentary_visual_decrease' },
 }
 
+local ts_builtin = require'telescope.builtin'
+
+mappings.telescope = {
+    { 'n', '<leader>ff', ts_builtin.find_files, { desc = 'Find files' } },
+    { 'n', '<leader>fg', ts_builtin.live_grep, { desc = 'Grep files' } },
+    { 'n', '<C-p>', ts_builtin.git_files, { desc = 'Find git files' } }
+}
+
 mappings.zettelkasten = {
     { 'n', '<leader>zi', function() require"zettelkasten".open_index() end },
     { 'n', '<leader>zn', function() require"zettelkasten".new_zettel() end },
