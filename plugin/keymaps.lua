@@ -3,6 +3,16 @@ local mappings = {}
 mappings.general = {
     { 'n', '[d', vim.diagnostic.goto_prev },
     { 'n', ']d', vim.diagnostic.goto_next },
+    { 'n', '<leader>pv', vim.cmd.Explore },
+    { 'v', 'J', ":move '>+1<CR>gv=gv" },
+    { 'v', 'K', ":move '<-2<CR>gv=gv" },
+    { 'n', 'n', 'nzzzv:lua require("hlnext").HLNext()<CR>', { silent = true } },
+    { 'n', 'N', 'Nzzzv:lua require("hlnext").HLNext()<CR>', { silent = true } },
+    { 'n', '*', '*zzzv:lua require("hlnext").HLNext()<CR>', { silent = true } },
+    { 'n', '#', '#zzzv:lua require("hlnext").HLNext()<CR>', { silent = true } },
+    { 'n', '<leader>y', '"+y', { desc = 'yank to + register' } },
+    { 'v', '<leader>y', '"+y', { desc = 'yank to + register' } },
+    { 'n', '<leader>Y', '"+y$', { desc = 'yank to + register' } },
 }
 
 mappings.luasnip = {
