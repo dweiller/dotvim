@@ -31,6 +31,19 @@ mappings.telescope = {
     { 'n', '<C-p>', ts_builtin.git_files, { desc = 'Find git files' } }
 }
 
+do
+    local mark = require'harpoon.mark'
+    local ui = require'harpoon.ui'
+    mappings.harpoon = {
+        { 'n', '<leader>ma', mark.add_file, { desc = 'Add file to harpoon' } },
+        { 'n', '<leader>ms', ui.toggle_quick_menu, { desc = 'Show harpoon marks' } },
+        { 'n', '<M-j>', function() ui.nav_file(1) end, { desc = 'Harpoon to file 1' } },
+        { 'n', '<M-k>', function() ui.nav_file(2) end, { desc = 'Harpoon to file 2' } },
+        { 'n', '<M-l>', function() ui.nav_file(3) end, { desc = 'Harpoon to file 3' } },
+        { 'n', '<M-;>', function() ui.nav_file(4) end, { desc = 'Harpoon to file 4' } },
+    }
+end
+
 mappings.zettelkasten = {
     { 'n', '<leader>zi', function() require"zettelkasten".open_index() end },
     { 'n', '<leader>zn', function() require"zettelkasten".new_zettel() end },

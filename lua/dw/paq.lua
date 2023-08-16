@@ -31,6 +31,7 @@ local function load_paqs()
         'lewis6991/gitsigns.nvim',
         'ggandor/leap.nvim',
         {'nvim-telescope/telescope.nvim', branch = '0.1.x'},
+        'ThePrimeagen/harpoon',
     }
 end
 
