@@ -2,9 +2,6 @@
 	path = pack/bundle/start/vim-numbertoggle
 	url = https://github.com/jeffkreeftmeijer/vim-numbertoggle.git
 	ignore = untracked
-[submodule "ctrlp.vim"]
-	path = pack/bundle/start/ctrlp.vim
-	url = https://github.com/kien/ctrlp.vim.git
 [submodule "tagbar"]
 	path = pack/bundle/start/tagbar
 	url = https://github.com/majutsushi/tagbar.git
