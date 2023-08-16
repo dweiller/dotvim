@@ -32,6 +32,7 @@ local function load_paqs()
         'ggandor/leap.nvim',
         {'nvim-telescope/telescope.nvim', branch = '0.1.x'},
         'ThePrimeagen/harpoon',
+        'mbbill/undotree',
     }
 end
 

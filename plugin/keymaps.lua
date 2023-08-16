@@ -44,6 +44,10 @@ do
     }
 end
 
+mappings.undotree = {
+    { 'n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'Toggle Undotree' } },
+}
+
 mappings.zettelkasten = {
     { 'n', '<leader>zi', function() require"zettelkasten".open_index() end },
     { 'n', '<leader>zn', function() require"zettelkasten".new_zettel() end },
