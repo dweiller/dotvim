@@ -162,3 +162,8 @@ require'kommentary.config'.configure_language("arduino", {
 
 -- leap
 require'leap'.add_default_mappings()
+
+-- neogen
+require'neogen'.setup({
+    snippet_engine = "luasnip",
+})
