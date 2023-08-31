@@ -4,9 +4,6 @@
 [submodule "nord-vim"]
 	path = pack/bundle/opt/nord-vim
 	url = https://github.com/arcticicestudio/nord-vim.git
-[submodule "vim-solarized8"]
-	path = pack/bundle/opt/vim-solarized8
-	url = https://github.com/lifepillar/vim-solarized8.git
 [submodule "startuptime.vim"]
 	path = pack/bundle/opt/startuptime.vim
 	url = https://github.com/tweekmonster/startuptime.vim.git
