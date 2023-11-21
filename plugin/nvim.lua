@@ -29,30 +29,33 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- nvim-lsp
 local lspconfig = require('lspconfig')
 
-local function mapper(mode, key, result, opts)
+local function mapper(mode, key, result, opts, desc)
     opts = opts or {}
-    opts = vim.tbl_extend('keep', opts, { buffer = 0, noremap = true, silent = true })
+    opts = vim.tbl_extend('keep', opts, { buffer = 0, noremap = true, silent = true, desc = desc })
     vim.keymap.set(mode, key, result, opts)
 end
 
-local function custom_on_attach(client, bufnr)
-    local opts = { buffer = bufnr }
-    mapper('n', 'gd',    vim.lsp.buf.declaration, opts)
-    mapper('n', '<c-]>', vim.lsp.buf.definition, opts)
-    mapper('n', 'K',     vim.lsp.buf.hover, opts)
-    mapper('n', 'gi',    vim.lsp.buf.implementation, opts)
-    mapper('n', '<c-k>', vim.lsp.buf.signature_help, opts)
-    mapper('n', '1gD',   vim.lsp.buf.type_definition, opts)
-    mapper('n', 'gr',    vim.lsp.buf.references, opts)
-    mapper('n', 'g0',    vim.lsp.buf.document_symbol, opts)
-    mapper('n', 'gW',    vim.lsp.buf.workspace_symbol, opts)
-    mapper('n', '<leader>=', vim.lsp.buf.format, opts)
-    mapper('n', '<leader>a', vim.lsp.buf.code_action, opts)
-    mapper('n', '<leader>rn', vim.lsp.buf.rename, opts)
+vim.api.nvim_create_autocmd('LspAttach', {
+    group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+    callback = function(ev)
+        local opts = { buffer = ev.buf, noremap = true, silent = true }
+        mapper('n', 'gd',    vim.lsp.buf.declaration, opts, "goto declaration (LSP)")
+        mapper('n', '<c-]>', vim.lsp.buf.definition, opts, "goto definifion (LSP)")
+        mapper('n', 'K',     vim.lsp.buf.hover, opts, "hover information (LSP)")
+        mapper('n', 'gi',    vim.lsp.buf.implementation, opts, "list implementations (LSP)")
+        mapper('n', '<c-k>', vim.lsp.buf.signature_help, opts, "signature help (LSP)")
+        mapper('n', '1gD',   vim.lsp.buf.type_definition, opts, "goto type definition (LSP)")
+        mapper('n', 'gr',    vim.lsp.buf.references, opts, "list references (LSP)")
+        mapper('n', 'g0',    vim.lsp.buf.document_symbol, opts, "list document symbols (LSP)")
+        mapper('n', 'gW',    vim.lsp.buf.workspace_symbol, opts, "list workspace symbols (LSP)")
+        mapper('n', '<leader>=', vim.lsp.buf.format, opts, "format (LSP)")
+        mapper('n', '<leader>a', vim.lsp.buf.code_action, opts, "code action (LSP)")
+        mapper('n', '<leader>rn', vim.lsp.buf.rename, opts, "rename symbol (LSP)")
 
-    vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-    vim.api.nvim_set_option('completeopt', 'menuone,noinsert,noselect')
-end
+        vim.api.nvim_buf_set_option(ev.buf, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+        vim.api.nvim_set_option('completeopt', 'menuone,noinsert,noselect')
+    end
+})
 
 lspconfig.texlab.setup {
     on_attach = custom_on_attach,
@@ -136,18 +139,18 @@ require'gitsigns'.setup {
     on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
         local opts = { buffer = bufnr }
-        mapper('n', ']c', next_change, { buffer = bufnr, expr = true })
-        mapper('n', '[c', prev_change, { buffer = bufnr, expr = true })
-        mapper('n', '<leader>hs', gs.stage_hunk, opts)
-        mapper('n', '<leader>hr', gs.reset_hunk, opts)
-        mapper('n', '<leader>hu', gs.undo_stage_hunk, opts)
-        mapper('n', '<leader>hS', gs.stage_buffer, opts)
-        mapper('n', '<leader>hR', gs.reset_buffer, opts)
-        mapper('n', '<leader>hp', gs.preview_hunk, opts)
-        mapper('n', '<leader>hb', function() gs.blame_line({ full = true }) end, opts)
-        mapper('n', '<leader>hd', gs.diffthis, opts)
-        mapper('n', '<leader>hD', function() gs.diffthis("~") end, opts)
-        mapper('n', '<leader>td', gs.toggle_deleted, opts)
+        mapper('n', ']c', next_change, { buffer = bufnr, expr = true, desc = "goto next change" })
+        mapper('n', '[c', prev_change, { buffer = bufnr, expr = true, desc = "goto previous change" })
+        mapper('n', '<leader>hs', gs.stage_hunk, { buffer = bufnr, desc = "stage change" })
+        mapper('n', '<leader>hr', gs.reset_hunk, { buffer = bufnr, desc = "reset change" })
+        mapper('n', '<leader>hu', gs.undo_stage_hunk, { buffer = bufnr, desc = "unstage change" })
+        mapper('n', '<leader>hS', gs.stage_buffer, { buffer = bufnr, desc = "stage buffer" })
+        mapper('n', '<leader>hR', gs.reset_buffer, { buffer = bufnr, desc = "reset buffer" })
+        mapper('n', '<leader>hp', gs.preview_hunk, { buffer = bufnr, desc = "preview change" })
+        mapper('n', '<leader>hb', function() gs.blame_line({ full = true }) end, { buffer = bufnr, desc = "show blame" })
+        mapper('n', '<leader>hd', gs.diffthis, { buffer = bufnr, desc = "show diff" })
+        mapper('n', '<leader>hD', function() gs.diffthis("~") end, { buffer = bufnr, desc = "show diff against HEAD" })
+        mapper('n', '<leader>td', gs.toggle_deleted, { buffer = bufnr, desc = "toggle deleted change" })
     end,
 }
 

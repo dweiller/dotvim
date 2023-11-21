@@ -1,15 +1,15 @@
 local mappings = {}
 
 mappings.general = {
-    { 'n', '[d', vim.diagnostic.goto_prev },
-    { 'n', ']d', vim.diagnostic.goto_next },
-    { 'n', '<leader>pv', vim.cmd.Explore },
-    { 'v', 'J', ":move '>+1<CR>gv=gv" },
-    { 'v', 'K', ":move '<-2<CR>gv=gv" },
-    { 'n', 'n', 'nzzzv:lua require("hlnext").HLNext()<CR>', { silent = true } },
-    { 'n', 'N', 'Nzzzv:lua require("hlnext").HLNext()<CR>', { silent = true } },
-    { 'n', '*', '*zzzv:lua require("hlnext").HLNext()<CR>', { silent = true } },
-    { 'n', '#', '#zzzv:lua require("hlnext").HLNext()<CR>', { silent = true } },
+    { 'n', '[d', vim.diagnostic.goto_prev, { desc = "goto previous diagnostic" }},
+    { 'n', ']d', vim.diagnostic.goto_next, { desc = "goto next diagnostic" }},
+    { 'n', '<leader>pv', vim.cmd.Explore, { desc = "open netrw at current file" } },
+    { 'v', 'J', ":move '>+1<CR>gv=gv", { desc = "move lines down" } },
+    { 'v', 'K', ":move '<-2<CR>gv=gv" , { desc = "move lines up" }},
+    { 'n', 'n', 'nzzzv:lua require("hlnext").HLNext()<CR>', { silent = true }, desc = "smarter n" },
+    { 'n', 'N', 'Nzzzv:lua require("hlnext").HLNext()<CR>', { silent = true }, desc = "smarter N" },
+    { 'n', '*', '*zzzv:lua require("hlnext").HLNext()<CR>', { silent = true }, desc = "smarter *" },
+    { 'n', '#', '#zzzv:lua require("hlnext").HLNext()<CR>', { silent = true }, desc = "smarter #" },
     { 'n', '<leader>y', '"+y', { desc = 'yank to + register' } },
     { 'v', '<leader>y', '"+y', { desc = 'yank to + register' } },
     { 'n', '<leader>Y', '"+y$', { desc = 'yank to + register' } },
@@ -17,20 +17,20 @@ mappings.general = {
 
 mappings.luasnip = {
     { 'i', '<Tab>', "luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'", { remap = true, expr = true, replace_keycodes = false } },
-    { 's', '<Tab>', function() require"luasnip".jump(1) end },
-    { {'i', 's'}, '<S-Tab>', function() require"luasnip".jump(-1) end },
-    { {'i', 's'}, '<C-E>', '<Plug>luasnip-next-choice' },
+    { 's', '<Tab>', function() require"luasnip".jump(1) end, { desc = "jump to next snippet stop" } },
+    { {'i', 's'}, '<S-Tab>', function() require"luasnip".jump(-1) end, { desc = "jump to previous snippet stop" } },
+    { {'i', 's'}, '<C-E>', '<Plug>luasnip-next-choice', { desc = "next snippet choide" }},
 }
 
 vim.g.kommentary_create_default_mappings = false
 mappings.kommentary = {
-    { 'n', '<leader>cc', '<Plug>kommentary_line_default' },
-    { 'n', '<leader>c', '<Plug>kommentary_motion_default' },
-    { 'x', '<leader>c', '<Plug>kommentary_visual_default<ESC>' },
-    { 'n', '<leader>ic', '<Plug>kommentary_line_increase' },
-    { 'x', '<leader>ic', '<Plug>kommentary_visual_increase' },
-    { 'n', '<leader>dc', '<Plug>kommentary_line_decrease' },
-    { 'x', '<leader>dc', '<Plug>kommentary_visual_decrease' },
+    { 'n', '<leader>cc', '<Plug>kommentary_line_default', { desc = "toggle line comment" } },
+    { 'n', '<leader>c', '<Plug>kommentary_motion_default', { desc = "toggle comment motion" }},
+    { 'x', '<leader>c', '<Plug>kommentary_visual_default<ESC>', { desc = "toggle comment" } },
+    { 'n', '<leader>ic', '<Plug>kommentary_line_increase', { desc = "increase comment depth" } },
+    { 'x', '<leader>ic', '<Plug>kommentary_visual_increase', { desc = "increase comment depth" } },
+    { 'n', '<leader>dc', '<Plug>kommentary_line_decrease', { desc = "decrease comment depth" } },
+    { 'x', '<leader>dc', '<Plug>kommentary_visual_decrease', { desc = "decrease comment depth" } },
 }
 
 local ts_builtin = require'telescope.builtin'
@@ -59,8 +59,8 @@ mappings.undotree = {
 }
 
 mappings.zettelkasten = {
-    { 'n', '<leader>zi', function() require"zettelkasten".open_index() end },
-    { 'n', '<leader>zn', function() require"zettelkasten".new_zettel() end },
+    { 'n', '<leader>zi', function() require"zettelkasten".open_index() end, desc = "open zettlekasten index" },
+    { 'n', '<leader>zn', function() require"zettelkasten".new_zettel() end, desc = "create new zettle" },
 }
 
 
