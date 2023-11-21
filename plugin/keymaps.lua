@@ -27,10 +27,10 @@ mappings.kommentary = {
     { 'n', '<leader>cc', '<Plug>kommentary_line_default', { desc = "toggle line comment" } },
     { 'n', '<leader>c', '<Plug>kommentary_motion_default', { desc = "toggle comment motion" }},
     { 'x', '<leader>c', '<Plug>kommentary_visual_default<ESC>', { desc = "toggle comment" } },
-    { 'n', '<leader>ic', '<Plug>kommentary_line_increase', { desc = "increase comment depth" } },
-    { 'x', '<leader>ic', '<Plug>kommentary_visual_increase', { desc = "increase comment depth" } },
-    { 'n', '<leader>dc', '<Plug>kommentary_line_decrease', { desc = "decrease comment depth" } },
-    { 'x', '<leader>dc', '<Plug>kommentary_visual_decrease', { desc = "decrease comment depth" } },
+    { 'n', '<leader>ci', '<Plug>kommentary_line_increase', { desc = "increase comment depth" } },
+    { 'x', '<leader>ci', '<Plug>kommentary_visual_increase', { desc = "increase comment depth" } },
+    { 'n', '<leader>cd', '<Plug>kommentary_line_decrease', { desc = "decrease comment depth" } },
+    { 'x', '<leader>cd', '<Plug>kommentary_visual_decrease', { desc = "decrease comment depth" } },
 }
 
 local ts_builtin = require'telescope.builtin'
@@ -39,6 +39,10 @@ mappings.telescope = {
     { 'n', '<leader>ff', ts_builtin.find_files, { desc = 'Find files' } },
     { 'n', '<leader>fg', ts_builtin.live_grep, { desc = 'Grep files' } },
     { 'n', '<C-p>', ts_builtin.git_files, { desc = 'Find git files' } }
+}
+
+mappings.neogen = {
+    { 'n', '<leader>dc', require('neogen').generate },
 }
 
 do
