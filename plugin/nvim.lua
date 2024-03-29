@@ -102,7 +102,6 @@ require'nvim-treesitter.configs'.setup {
     },
     indent = { enable = true, },
     incremental_selection = { enable = true, },
-    context_commentstring = { enable = true, },
     playground = { enable = true },
     query_linter = { enable = true },
     tree_docs = { enable = true },
