@@ -85,6 +85,13 @@ lspconfig.ocamllsp.setup {
 lspconfig.zls.setup {
     on_attach = custom_on_attach,
     capabilities = capabilities,
+    on_new_config = function(new_config, new_root_dir)
+        local root_config = lspconfig.util.path.join(new_root_dir, "zls.json")
+        if lspconfig.util.path.exists(root_config) then
+            table.insert(new_config.cmd, "--config-path")
+            table.insert(new_config.cmd, root_config)
+        end
+    end,
 }
 
 lspconfig.rust_analyzer.setup {
