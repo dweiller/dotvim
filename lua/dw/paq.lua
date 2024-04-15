@@ -35,6 +35,7 @@ local function load_paqs()
         'mbbill/undotree',
         'danymat/neogen',
         'j-hui/fidget.nvim',
+        'tpope/vim-sleuth',
     }
 end
 
