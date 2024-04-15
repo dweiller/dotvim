@@ -175,3 +175,6 @@ require'leap'.add_default_mappings()
 require'neogen'.setup({
     snippet_engine = "luasnip",
 })
+
+-- fidget
+require'fidget'.setup()

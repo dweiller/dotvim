@@ -34,6 +34,7 @@ local function load_paqs()
         'ThePrimeagen/harpoon',
         'mbbill/undotree',
         'danymat/neogen',
+        'j-hui/fidget.nvim',
     }
 end
 
