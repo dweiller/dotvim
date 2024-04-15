@@ -33,7 +33,7 @@ local function load_paqs()
         {'nvim-telescope/telescope.nvim', branch = '0.1.x'},
         'ThePrimeagen/harpoon',
         'mbbill/undotree',
-        'danymat/neogen'
+        'danymat/neogen',
     }
 end
 
