@@ -178,3 +178,9 @@ require'neogen'.setup({
 
 -- fidget
 require'fidget'.setup()
+
+-- nvim-dap
+require'dap'.adapters.zig = {
+    type = 'executable',
+    command = 'lldb-vscode-14',
+}

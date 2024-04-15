@@ -36,6 +36,7 @@ local function load_paqs()
         'danymat/neogen',
         'j-hui/fidget.nvim',
         'tpope/vim-sleuth',
+        'mfussenegger/nvim-dap',
     }
 end
 
