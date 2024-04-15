@@ -10,9 +10,6 @@
 [submodule "vim-sandwich"]
 	path = pack/bundle/start/vim-sandwich
 	url = https://github.com/machakann/vim-sandwich.git
-[submodule "ale"]
-	path = pack/bundle/start/ale
-	url = https://github.com/dense-analysis/ale.git
 [submodule "zig.vim"]
 	path = pack/bundle/start/zig.vim
 	url = https://github.com/ziglang/zig.vim.git

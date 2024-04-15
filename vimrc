@@ -305,15 +305,6 @@ function! StatusGitInfo()
     return '(' . branch . ')'
 endfunction
 
-function! LinterStatus(bufnr)
-    let l:counts = ale#statusline#Count(a:bufnr)
-
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-
-    return l:counts.total == 0 ? '' : printf('%dW %dE', all_non_errors, all_errors)
-endfunction
-
 function! StatusLine(winnr)
     let status = ''
     let active = winnr() == a:winnr
@@ -340,9 +331,6 @@ function! StatusLine(winnr)
     endif
 
     let status .= "%{(&fenc != 'utf-8' && &fenc != '') ? '[' . &fenc . ']' : '' }"
-
-    let status .= '%='
-    let status .= '%#WarningMsg#%{LinterStatus(' . bufnr . ')}%*'
 
     let status .= '%='
 
