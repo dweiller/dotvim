@@ -203,7 +203,8 @@ augroup nord-theme-overrides
     execute 'autocmd ColorScheme nord highlight LineNr guifg=' . g:nord3_brightened[15]
     execute 'autocmd ColorScheme nord highlight Folded guifg=' . g:nord3_brightened[15]
     execute 'autocmd ColorScheme nord highlight EndOfBuffer guifg=' . g:nord3_brightened[15]
-    execute 'autocmd ColorScheme nord highlight IncSearch guibg=' . g:nord_colour[15] . ' guifg=' . g:nord_colour[0]
+    execute 'autocmd ColorScheme nord highlight CurSearch guibg=' . g:nord_colour[15] . ' guifg=' . g:nord_colour[0]
+    execute 'autocmd ColorScheme nord highlight clear IncSearch'
     execute 'autocmd ColorScheme nord highlight StatusLine guibg=' . g:nord_colour[2] . ' guifg=' . g:nord_colour[4]
     execute 'autocmd ColorScheme nord highlight StatusLineNC guibg=' . g:nord_colour[2] . ' guifg=' . g:nord3_brightened[15]
     execute 'autocmd ColorScheme nord highlight User1 guibg=' . g:nord_colour[2] . ' guifg=' . g:nord_colour[7] . ' gui=bold'
@@ -242,11 +243,7 @@ inoremap <c-j> <esc>gUiWEa
 nnoremap <silent> <F9> :TagbarToggle<CR>
 
 "  nohlsearch on <CR> if currently highlighting search
-if has('nvim')
-    nnoremap <expr> <silent> <CR> {-> v:hlsearch ? ":nohlsearch<CR>:lua require('hlnext').HLNextOff()<CR>" : "<CR>"}()
-else
-    nnoremap <expr> <silent> <CR> {-> v:hlsearch ? ":nohlsearch<CR>" : "<CR>"}()
-endif
+nnoremap <expr> <silent> <CR> {-> v:hlsearch ? ":nohlsearch<CR>" : "<CR>"}()
 
 noremap <leader>ll :lopen<CR>
 noremap <leader>lc :lclose<CR>
