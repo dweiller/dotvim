@@ -32,8 +32,12 @@ mappings.kommentary = {
 
 local ts_builtin = require'telescope.builtin'
 
+local function find_files()
+    ts_builtin.find_files({ hidden = true, no_ignore = true })
+end
+
 mappings.telescope = {
-    { 'n', '<leader>ff', ts_builtin.find_files, { desc = 'Find files' } },
+    { 'n', '<leader>ff', find_files, { desc = 'Find files' } },
     { 'n', '<leader>fg', ts_builtin.live_grep, { desc = 'Grep files' } },
     { 'n', '<C-p>', ts_builtin.git_files, { desc = 'Find git files' } }
 }
