@@ -1,6 +1,3 @@
-[submodule "tagbar"]
-	path = pack/bundle/start/tagbar
-	url = https://github.com/majutsushi/tagbar.git
 [submodule "nord-vim"]
 	path = pack/bundle/opt/nord-vim
 	url = https://github.com/arcticicestudio/nord-vim.git

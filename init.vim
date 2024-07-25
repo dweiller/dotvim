@@ -239,9 +239,6 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 "  uppercase current WORD and continue inserting
 inoremap <c-j> <esc>gUiWEa
 
-"  tagbar
-nnoremap <silent> <F9> :TagbarToggle<CR>
-
 "  nohlsearch on <CR> if currently highlighting search
 nnoremap <expr> <silent> <CR> {-> v:hlsearch ? ":nohlsearch<CR>" : "<CR>"}()
 
@@ -349,14 +346,6 @@ augroup status
 augroup END
 
 set laststatus=2
-" }}}
-" Tagbar {{{
-" --------------------------------------------------------------------
-let g:tagbar_left = 1
-let g:tagbar_autoclose = 1
-if executable('universal-ctags')
-    let g:tagbar_ctags_bin = 'universal-ctags'
-endif
 " }}}
 " Templ & Tagger {{{
 " --------------------------------------------------------------------
