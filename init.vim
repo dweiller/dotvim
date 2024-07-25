@@ -212,7 +212,7 @@ augroup nord-theme-overrides
     execute 'autocmd ColorScheme nord highlight User3 guibg=' . g:nord_colour[2] . ' guifg=' . g:nord_colour[7]
     execute 'autocmd ColorScheme nord highlight Special guifg=' . g:nord_colour[15]
 augroup END
-colorscheme nord
+silent! colorscheme nord
 " }}}
 " Mappings {{{
 " --------------------------------------------------------------------
