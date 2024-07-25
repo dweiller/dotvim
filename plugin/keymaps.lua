@@ -30,23 +30,27 @@ mappings.kommentary = {
     { 'x', '<leader>cd', '<Plug>kommentary_visual_decrease', { desc = "decrease comment depth" } },
 }
 
-local ts_builtin = require'telescope.builtin'
+if (pcall(require, 'telescope')) then
+    local ts_builtin = require'telescope.builtin'
 
-local function find_files()
-    ts_builtin.find_files({ hidden = true, no_ignore = true })
+    local function find_files()
+        ts_builtin.find_files({ hidden = true, no_ignore = true })
+    end
+
+    mappings.telescope = {
+        { 'n', '<leader>ff', find_files, { desc = 'Find files' } },
+        { 'n', '<leader>fg', ts_builtin.live_grep, { desc = 'Grep files' } },
+        { 'n', '<C-p>', ts_builtin.git_files, { desc = 'Find git files' } }
+    }
 end
 
-mappings.telescope = {
-    { 'n', '<leader>ff', find_files, { desc = 'Find files' } },
-    { 'n', '<leader>fg', ts_builtin.live_grep, { desc = 'Grep files' } },
-    { 'n', '<C-p>', ts_builtin.git_files, { desc = 'Find git files' } }
-}
+if (pcall(require, 'neogen')) then
+    mappings.neogen = {
+        { 'n', '<leader>dc', require('neogen').generate },
+    }
+end
 
-mappings.neogen = {
-    { 'n', '<leader>dc', require('neogen').generate },
-}
-
-do
+if (pcall(require, 'harpoon')) then
     local mark = require'harpoon.mark'
     local ui = require'harpoon.ui'
     mappings.harpoon = {
