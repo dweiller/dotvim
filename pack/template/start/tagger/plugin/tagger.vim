@@ -14,7 +14,7 @@ if !exists('g:Tagger_delim')
 endif
 
 if !exists('g:Tagger_pattern')
-    let g:Tagger_pattern = '\u\+'
+    let g:Tagger_pattern = '\(\u\|-\)\+'
 endif
 
 if !exists('g:Tagger_exprs')
