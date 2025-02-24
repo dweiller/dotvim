@@ -162,6 +162,7 @@ if (pcall(require, 'gitsigns')) then
             mapper('n', '<leader>hd', gs.diffthis, { buffer = bufnr, desc = "show diff" })
             mapper('n', '<leader>hD', function() gs.diffthis("~") end, { buffer = bufnr, desc = "show diff against HEAD" })
             mapper('n', '<leader>td', gs.toggle_deleted, { buffer = bufnr, desc = "toggle deleted change" })
+            mapper('n', '<leader>hl', gs.setloclist, { buffer = bufnr, desc = "send hunks to loclist" })
         end,
     }
 end
