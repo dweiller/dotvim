@@ -1,8 +1,6 @@
 local mappings = {}
 
 mappings.general = {
-    { 'n', '[d', vim.diagnostic.goto_prev, { desc = "goto previous diagnostic" } },
-    { 'n', ']d', vim.diagnostic.goto_next, { desc = "goto next diagnostic" } },
     { 'n', '<leader>q', vim.diagnostic.setqflist, { desc = "add diagnostics to quick fix list" }},
     { 'n', '<leader>pv', vim.cmd.Explore, { desc = "open netrw at current file" } },
     { 'v', 'J', ":move '>+1<CR>gv=gv", { desc = "move lines down" } },

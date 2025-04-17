@@ -42,17 +42,10 @@ if (pcall(require, 'lspconfig')) then
         callback = function(ev)
             local opts = { buffer = ev.buf, noremap = true, silent = true }
             mapper('n', 'gd',    vim.lsp.buf.declaration, opts, "goto declaration (LSP)")
-            mapper('n', '<c-]>', vim.lsp.buf.definition, opts, "goto definifion (LSP)")
-            mapper('n', 'K',     vim.lsp.buf.hover, opts, "hover information (LSP)")
-            mapper('n', 'gi',    vim.lsp.buf.implementation, opts, "list implementations (LSP)")
             mapper('n', '<c-k>', vim.lsp.buf.signature_help, opts, "signature help (LSP)")
             mapper('n', '1gD',   vim.lsp.buf.type_definition, opts, "goto type definition (LSP)")
-            mapper('n', 'gr',    vim.lsp.buf.references, opts, "list references (LSP)")
-            mapper('n', 'g0',    vim.lsp.buf.document_symbol, opts, "list document symbols (LSP)")
             mapper('n', 'gW',    vim.lsp.buf.workspace_symbol, opts, "list workspace symbols (LSP)")
             mapper('n', '<leader>=', vim.lsp.buf.format, opts, "format (LSP)")
-            mapper('n', '<leader>a', vim.lsp.buf.code_action, opts, "code action (LSP)")
-            mapper('n', '<leader>rn', vim.lsp.buf.rename, opts, "rename symbol (LSP)")
 
             vim.api.nvim_buf_set_option(ev.buf, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
             vim.api.nvim_set_option('completeopt', 'menuone,noinsert,noselect')

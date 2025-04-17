@@ -246,11 +246,6 @@ noremap <leader>ll :lopen<CR>
 noremap <leader>lc :lclose<CR>
 noremap <leader>ql :copen<CR>
 noremap <leader>qc :cclose<CR>
-
-nnoremap <leader>l :lnext<CR>
-nnoremap <leader>h :lprevious<CR>
-nnoremap <leader>j :cnext<CR>
-nnoremap <leader>k :cprevious<CR>
 " }}}
 " Status line {{{
 " --------------------------------------------------------------------
