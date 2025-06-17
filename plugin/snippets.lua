@@ -235,7 +235,7 @@ local function thmSnip(thmtype)
         i(2),
         t({'', '\t\\begin{proof}', ''}),
         i(3, '\t\t\\sorry'),
-        t({'', '\t\\end{proof}', '', '\\end{' .. thmtype .. '}', ''}),
+        t({'', '\t\\end{proof}', '\\end{' .. thmtype .. '}', ''}),
     }
 end
 
