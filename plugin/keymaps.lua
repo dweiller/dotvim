@@ -58,6 +58,10 @@ if (pcall(require, 'harpoon')) then
         { 'n', '<M-k>', function() ui.nav_file(2) end, { desc = 'Harpoon to file 2' } },
         { 'n', '<M-l>', function() ui.nav_file(3) end, { desc = 'Harpoon to file 3' } },
         { 'n', '<M-;>', function() ui.nav_file(4) end, { desc = 'Harpoon to file 4' } },
+        { 'n', '<M-a>', function() ui.nav_file(5) end, { desc = 'Harpoon to file 5' } },
+        { 'n', '<M-s>', function() ui.nav_file(6) end, { desc = 'Harpoon to file 6' } },
+        { 'n', '<M-d>', function() ui.nav_file(7) end, { desc = 'Harpoon to file 7' } },
+        { 'n', '<M-f>', function() ui.nav_file(8) end, { desc = 'Harpoon to file 8' } },
     }
 end
 
