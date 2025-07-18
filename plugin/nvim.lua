@@ -1,8 +1,3 @@
--- bail out if bootstrapping
-if _G['bootstrap-paq'] then
-    return
-end
-
 -- nvim-cmp
 if (pcall(require, 'cmp')) then
     local cmp = require('cmp')
