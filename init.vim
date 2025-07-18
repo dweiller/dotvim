@@ -325,11 +325,6 @@ if executable('opam')
     execute "set rtp+=" . g:opamshare . "/merlin/vim"
 endif
 " }}}
-" vim-sandwich {{{
-" --------------------------------------------------------------------
-"  use vim-surround style keymap instead of the default
-runtime START macros/sandwich/keymap/surround.vim
-" }}}
 " zig.vim {{{
 " --------------------------------------------------------------------
 " disable formatting on save, this causes huge latency issue (probably because

@@ -132,3 +132,8 @@ if (pcall(require, 'dap')) then
         command = 'lldb-vscode-14',
     }
 end
+
+-- nvim-surround
+if (pcall(require, 'nvim-surround')) then
+    require'nvim-surround'.setup({})
+end

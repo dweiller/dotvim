@@ -37,6 +37,7 @@ local function load_paqs()
         'j-hui/fidget.nvim',
         'tpope/vim-sleuth',
         'mfussenegger/nvim-dap',
+        'kylechui/nvim-surround',
     }
 end
 
