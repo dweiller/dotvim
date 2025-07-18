@@ -38,6 +38,7 @@ local function load_paqs()
         'tpope/vim-sleuth',
         'mfussenegger/nvim-dap',
         'kylechui/nvim-surround',
+        {'nordtheme/vim', as = 'nord-theme', opt=true},
     }
 end
 
