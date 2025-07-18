@@ -1,6 +1,3 @@
 [submodule "nord-vim"]
 	path = pack/bundle/opt/nord-vim
 	url = https://github.com/arcticicestudio/nord-vim.git
-[submodule "startuptime.vim"]
-	path = pack/bundle/opt/startuptime.vim
-	url = https://github.com/tweekmonster/startuptime.vim.git
