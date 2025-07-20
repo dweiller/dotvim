@@ -132,3 +132,8 @@ end
 if (pcall(require, 'nvim-surround')) then
     require'nvim-surround'.setup({})
 end
+
+-- nvim-autopairs
+if (pcall(require, 'nvim-autopairs')) then
+    require'nvim-autopairs'.setup({})
+end

@@ -42,6 +42,7 @@ local packages = {
     'mfussenegger/nvim-dap',
     'kylechui/nvim-surround',
     {'nordtheme/vim', as = 'nord-theme', opt=true},
+    'windwp/nvim-autopairs',
 }
 
 if (not pcall(require, 'paq')) then
