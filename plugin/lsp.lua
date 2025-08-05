@@ -18,11 +18,21 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 })
 
-vim.lsp.enable({
+local language_servers = {
     'ocamllsp',
     'texlab',
     'rust_analyzer',
     'zls',
-});
+}
+
+local installed_servers = {}
+
+for _, v in ipairs(language_servers) do
+    if (vim.fn.executable(v) == 1) then
+        table.insert(installed_servers, v)
+    end
+end
+
+vim.lsp.enable(installed_servers);
 
 vim.diagnostic.config({ virtual_text = true})
