@@ -6,5 +6,10 @@ return {
                 args = { "%p", "%l", "%f" }
             },
         },
+        texlab = {
+            diagnostics = {
+                ignoredPatterns = { 'Unused label' },
+            },
+        },
     },
 }
